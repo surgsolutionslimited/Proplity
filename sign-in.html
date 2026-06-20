@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Proplity | Sign In — Institutional Grade Property Intelligence</title>
+  <meta name="description" content="Sign in or create a Proplity account to access institutional-grade property intelligence for the UK market."/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant":"#005312","on-error":"#ffffff","tertiary-fixed-dim":"#88d982","surface-container":"#eeeee9","on-primary":"#ffffff","surface-dim":"#dadad6","secondary-container":"#fed65b","on-primary-fixed-variant":"#00513e","inverse-surface":"#2f312e","tertiary-fixed":"#a3f69c","on-background":"#1a1c19","on-error-container":"#93000a","on-primary-fixed":"#002117","secondary":"#735c00","primary-fixed-dim":"#84d6b9","tertiary-container":"#1f7027","surface-tint":"#086b53","on-secondary":"#ffffff","on-surface-variant":"#3f4944","surface-container-highest":"#e2e3de","background":"#fafaf5","on-surface":"#1a1c19","outline":"#6f7a74","secondary-fixed":"#ffe088","on-tertiary-fixed":"#002204","on-secondary-fixed":"#241a00","primary-fixed":"#a0f3d4","outline-variant":"#bec9c3","surface":"#fafaf5","surface-container-high":"#e8e8e4","on-primary-container":"#9aedcf","primary":"#005440","inverse-on-surface":"#f1f1ec","error":"#ba1a1a","tertiary":"#005613","secondary-fixed-dim":"#e9c349","on-tertiary-container":"#9ef197","on-secondary-fixed-variant":"#574500","surface-variant":"#e2e3de","inverse-primary":"#84d6b9","surface-bright":"#fafaf5","on-secondary-container":"#745c00","primary-container":"#0f6e56","surface-container-lowest":"#ffffff","surface-container-low":"#f4f4ef","error-container":"#ffdad6","on-tertiary":"#ffffff"
+          },
+          fontFamily: { "headline": ["Geist","sans-serif"], "display": ["Geist","sans-serif"], "body": ["Inter","sans-serif"], "label": ["Geist","sans-serif"] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-headline { font-family: 'Geist', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .soft-overlay { background: linear-gradient(to right, rgba(0,84,64,0.55), rgba(0,84,64,0.2)); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards; opacity:0; }
+    .d1{animation-delay:.08s} .d2{animation-delay:.16s} .d3{animation-delay:.24s} .d4{animation-delay:.32s} .d5{animation-delay:.40s}
+    /* Tab switcher */
+    .auth-tab { transition: all 0.25s ease; }
+    .auth-panel { display: none; }
+    .auth-panel.active { display: block; }
+    input:focus { outline:none; }
+  </style>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-background text-on-background min-h-screen flex overflow-hidden">
+
+  <!-- ═══════════════════════════════════════════ LEFT PANEL (DESKTOP) ═══════════════════════════════════════════ -->
+  <section class="hidden lg:flex lg:w-[52%] relative overflow-hidden bg-primary flex-col">
+    <!-- Architectural hero image -->
+    <div class="absolute inset-0 z-0">
+      <div class="w-full h-full bg-cover bg-center" style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbdQ-r6rntcnVaJug-TaaJy_WkSba0AWD46Wm4p-ZD1_eQxpXAaS-rg_MTlIBM35pO15R9Wgqb9nftOi3Ls79F5xasK6h-2DBUhUXeePJRf6U_QYJkUceAsOsad3DQzM_QUaOBCzZ6NELoDvUCUD-8_l4KWVRsYMi8A9RAaWzkKsQ4XorXokETcjh-n443136tya_J1doOgY9GK0SmnEFApBDVMllxhXszeVqxyxf7KWSVFk4lZwQDXB_Ef88esV7RTYmcehNE3o0')"></div>
+    </div>
+    <div class="absolute inset-0 z-10 soft-overlay"></div>
+
+    <!-- Branding -->
+    <div class="relative z-20 p-14 flex flex-col justify-between h-full">
+      <div class="fade-up d1 flex items-center gap-3">
+        <span class="material-symbols-outlined text-4xl text-on-primary" style="font-variation-settings:'FILL' 1;">home_work</span>
+        <span class="font-headline text-3xl font-extrabold tracking-tight text-on-primary">Proplity</span>
+      </div>
+
+      <div class="space-y-6">
+        <h2 class="font-headline text-5xl font-extrabold text-white leading-tight fade-up d2">
+          Expert property insights,<br/>delivered with clarity.
+        </h2>
+        <p class="text-xl text-primary-fixed leading-relaxed opacity-90 fade-up d3 max-w-md">
+          Join thousands of investors and homeowners using Proplity to make data-driven property decisions.
+        </p>
+        <!-- Social proof -->
+        <div class="flex items-center gap-5 fade-up d4">
+          <div class="flex -space-x-2">
+            <div class="w-10 h-10 rounded-full border-2 border-primary bg-surface-container-highest flex items-center justify-center text-xs font-bold text-primary font-headline">JD</div>
+            <div class="w-10 h-10 rounded-full border-2 border-primary bg-surface-container-highest flex items-center justify-center text-xs font-bold text-primary font-headline">MK</div>
+            <div class="w-10 h-10 rounded-full border-2 border-primary bg-surface-container-highest flex items-center justify-center text-xs font-bold text-primary font-headline">AL</div>
+          </div>
+          <div class="text-sm text-white">
+            <span class="font-bold">4.9/5</span> from 10k+ property professionals
+          </div>
+        </div>
+
+        <!-- Data stats -->
+        <div class="grid grid-cols-3 gap-4 fade-up d5 pt-4">
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+            <div class="font-headline text-2xl font-extrabold text-white">£2.4B+</div>
+            <div class="text-xs text-primary-fixed/80 mt-1">Transactions analyzed</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+            <div class="font-headline text-2xl font-extrabold text-white">±3%</div>
+            <div class="text-xs text-primary-fixed/80 mt-1">Valuation accuracy</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+            <div class="font-headline text-2xl font-extrabold text-white">50+</div>
+            <div class="text-xs text-primary-fixed/80 mt-1">Live data sources</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ RIGHT PANEL (FORM) ═══════════════════════════════════════════ -->
+  <section class="w-full lg:w-[48%] flex items-center justify-center p-6 md:p-12 bg-surface-bright relative">
+    <!-- Atmospheric glows -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed opacity-5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-fixed opacity-5 rounded-full blur-3xl -ml-48 -mb-48 pointer-events-none"></div>
+
+    <div class="w-full max-w-md z-10">
+      <!-- Mobile Branding -->
+      <div class="lg:hidden flex items-center gap-2 mb-10 fade-up d1">
+        <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings:'FILL' 1;">home_work</span>
+        <span class="font-headline text-2xl font-extrabold tracking-tight text-primary">Proplity</span>
+      </div>
+
+      <!-- Auth Tabs -->
+      <div class="mb-8 fade-up d1">
+        <div class="inline-flex bg-surface-container-low p-1 rounded-xl border border-outline-variant/20 w-full">
+          <button id="tab-signin" onclick="switchTab('signin')" class="auth-tab flex-1 py-2.5 rounded-lg font-headline font-semibold text-sm bg-surface shadow-sm text-on-surface transition-all">Sign In</button>
+          <button id="tab-signup" onclick="switchTab('signup')" class="auth-tab flex-1 py-2.5 rounded-lg font-headline font-semibold text-sm text-on-surface-variant hover:text-on-surface transition-all">Create Account</button>
+        </div>
+      </div>
+
+      <!-- ─── SIGN IN PANEL ─── -->
+      <div id="panel-signin" class="auth-panel active fade-up d2">
+        <div class="mb-8">
+          <h1 class="font-headline text-3xl font-bold text-on-background tracking-tight mb-2">Welcome back</h1>
+          <p class="text-on-surface-variant">Log in to access your property intelligence dashboard.</p>
+        </div>
+        <form class="space-y-5" id="signin-form" onsubmit="handleSignIn(event)">
+          <!-- Email -->
+          <div class="space-y-1.5">
+            <label class="text-sm font-semibold text-on-surface ml-1" for="signin-email">Email address</label>
+            <div class="relative group">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-outline text-[20px]">mail</span>
+              </div>
+              <input class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/25 focus:border-primary transition-all" id="signin-email" name="email" placeholder="e.g. james@example.com" required type="email"/>
+            </div>
+          </div>
+          <!-- Password -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between items-center ml-1">
+              <label class="text-sm font-semibold text-on-surface" for="signin-password">Password</label>
+              <a class="text-xs font-medium text-primary hover:underline" href="#">Forgot password?</a>
+            </div>
+            <div class="relative group">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-outline text-[20px]">lock</span>
+              </div>
+              <input class="block w-full pl-11 pr-11 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/25 focus:border-primary transition-all" id="signin-password" name="password" placeholder="••••••••" required type="password"/>
+              <button class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-outline hover:text-on-surface-variant" id="toggle-pw" type="button">
+                <span class="material-symbols-outlined text-[20px]">visibility</span>
+              </button>
+            </div>
+          </div>
+          <!-- Remember me -->
+          <label class="flex items-center gap-3 cursor-pointer">
+            <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+            <span class="text-sm text-on-surface-variant">Keep me signed in</span>
+          </label>
+          <!-- Submit -->
+          <button class="w-full bg-primary-container text-on-primary font-headline font-bold py-4 rounded-xl shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="signin-btn" type="submit">
+            Sign In
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="relative my-8">
+          <div class="absolute inset-0 flex items-center"><span class="w-full border-t border-outline-variant/30"></span></div>
+          <div class="relative flex justify-center text-xs uppercase"><span class="bg-surface-bright px-3 text-outline font-label font-medium tracking-wider">Or continue with</span></div>
+        </div>
+
+        <!-- Social auth -->
+        <div class="grid grid-cols-2 gap-4">
+          <button class="flex items-center justify-center gap-2.5 py-3 px-4 bg-surface-container-lowest border border-outline-variant/50 rounded-xl hover:bg-surface-container-low transition-colors shadow-sm text-sm font-medium text-on-surface" type="button">
+            <svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google
+          </button>
+          <button class="flex items-center justify-center gap-2.5 py-3 px-4 bg-surface-container-lowest border border-outline-variant/50 rounded-xl hover:bg-surface-container-low transition-colors shadow-sm text-sm font-medium text-on-surface" type="button">
+            <svg class="w-5 h-5 fill-on-background" viewBox="0 0 24 24"><path d="M17.05 20.28c-.96.95-2.21 1.72-3.74 1.72-2.31 0-3.66-1.46-5.41-1.46-1.74 0-3.23 1.41-5.11 1.41-1.34 0-2.82-.77-3.95-2.42-2.31-3.41-1.76-8.72 1.06-12.18 1.4-1.72 3.19-2.73 5.06-2.73 1.72 0 2.89.96 4.19.96s2.32-.99 4.31-.99c1.63 0 3.25.79 4.37 2.17-3.6 1.83-3.03 6.74.57 8.24-.7 1.93-1.89 3.8-3.35 5.28zM12.03 5.3c-.08-2.69 2.22-4.94 4.81-5.3.31 3.12-3.06 5.56-4.81 5.3z"/></svg>
+            Apple
+          </button>
+        </div>
+
+        <div class="mt-8 text-center">
+          <p class="text-sm text-on-surface-variant">Don't have an account? <button onclick="switchTab('signup')" class="font-bold text-primary hover:underline ml-1">Sign Up</button></p>
+          <div class="mt-8 flex justify-center items-center gap-6 text-[11px] font-label font-medium text-outline uppercase tracking-widest opacity-60">
+            <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+            <span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+            <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── SIGN UP PANEL ─── -->
+      <div id="panel-signup" class="auth-panel">
+        <div class="mb-8">
+          <h1 class="font-headline text-3xl font-bold text-on-background tracking-tight mb-2">Create your account</h1>
+          <p class="text-on-surface-variant">Start accessing institutional-grade property intelligence today.</p>
+        </div>
+        <form class="space-y-4" id="signup-form" onsubmit="handleSignUp(event)">
+          <!-- Full name -->
+          <div class="space-y-1.5">
+            <label class="text-sm font-semibold text-on-surface ml-1" for="signup-name">Full name</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-outline text-[20px]">person</span>
+              </div>
+              <input class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/25 focus:border-primary transition-all" id="signup-name" name="name" placeholder="James Davidson" required type="text"/>
+            </div>
+          </div>
+          <!-- Email -->
+          <div class="space-y-1.5">
+            <label class="text-sm font-semibold text-on-surface ml-1" for="signup-email">Email address</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-outline text-[20px]">mail</span>
+              </div>
+              <input class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/25 focus:border-primary transition-all" id="signup-email" name="email" placeholder="james@example.com" required type="email"/>
+            </div>
+          </div>
+          <!-- Password -->
+          <div class="space-y-1.5">
+            <label class="text-sm font-semibold text-on-surface ml-1" for="signup-password">Password</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                <span class="material-symbols-outlined text-outline text-[20px]">lock</span>
+              </div>
+              <input class="block w-full pl-11 pr-11 py-3.5 bg-surface-container-lowest border border-outline-variant rounded-xl text-on-surface placeholder-outline focus:ring-2 focus:ring-primary/25 focus:border-primary transition-all" id="signup-password" name="password" placeholder="Min. 8 characters" required type="password" minlength="8"/>
+              <button class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-outline hover:text-on-surface-variant" id="toggle-pw2" type="button">
+                <span class="material-symbols-outlined text-[20px]">visibility</span>
+              </button>
+            </div>
+          </div>
+          <!-- Terms -->
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary mt-0.5" required type="checkbox"/>
+            <span class="text-sm text-on-surface-variant leading-snug">I agree to the <a href="#" class="text-primary font-semibold hover:underline">Terms of Service</a> and <a href="#" class="text-primary font-semibold hover:underline">Privacy Policy</a></span>
+          </label>
+          <!-- Submit -->
+          <button class="w-full bg-primary-container text-on-primary font-headline font-bold py-4 rounded-xl shadow-sm hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="signup-btn" type="submit">
+            Create Account
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="relative my-7">
+          <div class="absolute inset-0 flex items-center"><span class="w-full border-t border-outline-variant/30"></span></div>
+          <div class="relative flex justify-center text-xs uppercase"><span class="bg-surface-bright px-3 text-outline font-label font-medium tracking-wider">Or sign up with</span></div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <button class="flex items-center justify-center gap-2.5 py-3 px-4 bg-surface-container-lowest border border-outline-variant/50 rounded-xl hover:bg-surface-container-low transition-colors shadow-sm text-sm font-medium text-on-surface" type="button">
+            <svg class="w-5 h-5" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Google
+          </button>
+          <button class="flex items-center justify-center gap-2.5 py-3 px-4 bg-surface-container-lowest border border-outline-variant/50 rounded-xl hover:bg-surface-container-low transition-colors shadow-sm text-sm font-medium text-on-surface" type="button">
+            <svg class="w-5 h-5 fill-on-background" viewBox="0 0 24 24"><path d="M17.05 20.28c-.96.95-2.21 1.72-3.74 1.72-2.31 0-3.66-1.46-5.41-1.46-1.74 0-3.23 1.41-5.11 1.41-1.34 0-2.82-.77-3.95-2.42-2.31-3.41-1.76-8.72 1.06-12.18 1.4-1.72 3.19-2.73 5.06-2.73 1.72 0 2.89.96 4.19.96s2.32-.99 4.31-.99c1.63 0 3.25.79 4.37 2.17-3.6 1.83-3.03 6.74.57 8.24-.7 1.93-1.89 3.8-3.35 5.28zM12.03 5.3c-.08-2.69 2.22-4.94 4.81-5.3.31 3.12-3.06 5.56-4.81 5.3z"/></svg>
+            Apple
+          </button>
+        </div>
+        <div class="mt-6 text-center">
+          <p class="text-sm text-on-surface-variant">Already have an account? <button onclick="switchTab('signin')" class="font-bold text-primary hover:underline ml-1">Sign In</button></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<script>
+  function switchTab(tab) {
+    const signinTab = document.getElementById('tab-signin');
+    const signupTab = document.getElementById('tab-signup');
+    const signinPanel = document.getElementById('panel-signin');
+    const signupPanel = document.getElementById('panel-signup');
+
+    if (tab === 'signin') {
+      signinTab.className = 'auth-tab flex-1 py-2.5 rounded-lg font-headline font-semibold text-sm bg-surface shadow-sm text-on-surface transition-all';
+      signupTab.className = 'auth-tab flex-1 py-2.5 rounded-lg font-headline font-semibold text-sm text-on-surface-variant hover:text-on-surface transition-all';
+      signinPanel.classList.add('active');
+      signupPanel.classList.remove('active');
+    } else {
+      signupTab.className = 'auth-tab flex-1 py-2.5 rounded-lg font-headline font-semibold text-sm bg-surface shadow-sm text-on-surface transition-all';
+      signinTab.className = 'auth-tab flex-1 py-2.5 rounded-lg font-headline font-semibold text-sm text-on-surface-variant hover:text-on-surface transition-all';
+      signupPanel.classList.add('active');
+      signinPanel.classList.remove('active');
+    }
+  }
+
+  // Password visibility toggles
+  function setupToggle(btnId, inputId) {
+    const btn = document.getElementById(btnId);
+    const input = document.getElementById(inputId);
+    if (btn && input) {
+      btn.addEventListener('click', () => {
+        const isPass = input.type === 'password';
+        input.type = isPass ? 'text' : 'password';
+        btn.querySelector('.material-symbols-outlined').innerText = isPass ? 'visibility_off' : 'visibility';
+      });
+    }
+  }
+  setupToggle('toggle-pw', 'signin-password');
+  setupToggle('toggle-pw2', 'signup-password');
+
+  // Form handlers — navigate to onboarding
+  function handleSignIn(e) {
+    e.preventDefault();
+    const btn = document.getElementById('signin-btn');
+    btn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Signing in...</span>';
+    btn.disabled = true;
+    setTimeout(() => { window.location.href = 'index.html'; }, 1500);
+  }
+  function handleSignUp(e) {
+    e.preventDefault();
+    const btn = document.getElementById('signup-btn');
+    btn.innerHTML = '<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Creating account...</span>';
+    btn.disabled = true;
+    setTimeout(() => { window.location.href = 'onboarding-goals.html'; }, 1500);
+  }
+</script>
+  <script src="shared.js"></script>
+</body>
+</html>

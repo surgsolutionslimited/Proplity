@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Proplity | Agency Portal â€” Apex Realty Dashboard</title>
+  <meta name="description" content="Proplity Agency Portal for Apex Realty. Manage institutional-grade property reports, active listings, and team access."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>`n  <link rel="stylesheet" href="styles.css"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant":"#005312","on-error":"#ffffff","tertiary-fixed-dim":"#88d982","surface-container":"#eeeee9","on-primary":"#ffffff","surface-dim":"#dadad5","secondary-container":"#fed65b","on-primary-fixed-variant":"#00513e","inverse-surface":"#2f312e","tertiary-fixed":"#a3f69c","on-background":"#1a1c19","on-error-container":"#93000a","on-primary-fixed":"#002117","secondary":"#735c00","primary-fixed-dim":"#84d6b9","tertiary-container":"#1f7027","surface-tint":"#086b53","on-secondary":"#ffffff","on-surface-variant":"#3f4944","surface-container-highest":"#e3e3de","background":"#fafaf5","on-surface":"#1a1c19","outline":"#6f7a74","secondary-fixed":"#ffe088","on-tertiary-fixed":"#002204","on-secondary-fixed":"#241a00","primary-fixed":"#a0f3d4","outline-variant":"#bec9c3","surface":"#fafaf5","surface-container-high":"#e8e8e3","on-primary-container":"#9aedcf","primary":"#005440","inverse-on-surface":"#f1f1ec","error":"#ba1a1a","tertiary":"#005613","secondary-fixed-dim":"#e9c349","on-tertiary-container":"#9ef197","on-secondary-fixed-variant":"#574500","surface-variant":"#e3e3de","inverse-primary":"#84d6b9","surface-bright":"#fafaf5","on-secondary-container":"#745c00","primary-container":"#0f6e56","surface-container-lowest":"#ffffff","surface-container-low":"#f4f4ef","error-container":"#ffdad6","on-tertiary":"#ffffff"
+          },
+          borderRadius: { "DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","2xl":"1rem","full":"9999px" },
+          spacing: { "gutter":"24px","container-max":"1440px","margin-mobile":"20px","margin-desktop":"64px","base":"8px" },
+          fontFamily: { "headline-md":["Geist"],"body-lg":["Inter"],"headline-lg-mobile":["Geist"],"label-md":["Geist"],"display":["Geist"],"label-sm":["Geist"],"headline-lg":["Geist"],"body-md":["Inter"] },
+          fontSize: {
+            "headline-md":["24px",{"lineHeight":"1.3","fontWeight":"500"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.01em","fontWeight":"500"}],"display":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"1.2","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family:'Inter',sans-serif; background-color:#fafaf5; }
+    h1,h2,h3,h4,h5,h6 { font-family:'Geist',sans-serif; }
+    .no-scrollbar::-webkit-scrollbar { display:none; }
+    .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+    .stat-card { box-shadow: 0px 4px 20px rgba(15,110,86,0.04); transition: box-shadow 0.2s; }
+    .stat-card:hover { box-shadow: 0px 8px 30px rgba(15,110,86,0.08); }
+    .property-row:hover { background-color: #fafaf5; }
+  </style>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body class="text-on-background min-h-screen flex flex-col font-body-md antialiased pb-[80px] md:pb-0">
+
+<!-- TopAppBar -->
+<header class="bg-surface text-primary border-b border-outline-variant/10 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-40">
+  <div class="flex items-center gap-3">
+    <a href="index.html" class="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity">
+      <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+    </a>
+  </div>
+  <div class="flex items-center gap-4">
+    <div class="hidden md:flex items-center gap-6 mr-4">
+      <a class="text-primary font-label-md text-label-md font-bold hover:opacity-80 transition-opacity" href="agency-dashboard.html">Listings</a>
+      <a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity" href="valuation-report.html">Reports</a>
+      <a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity" href="#">Team</a>
+      <a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity" href="pricing.html">Pricing</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="hidden md:flex items-center gap-2 bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity">
+        <span class="material-symbols-outlined text-sm">add</span>
+        Add Property
+      </button>
+      <div class="w-9 h-9 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/30 flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity flex items-center justify-center">
+        <span class="material-symbols-outlined text-on-surface-variant">person</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-6 flex flex-col gap-8">
+
+  <!-- Page Header -->
+  <section class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <div class="flex items-center gap-3 mb-2">
+        <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Agency Portal</h1>
+        <span class="bg-secondary-container text-on-secondary-container font-label-sm text-label-sm px-3 py-1 rounded-lg tracking-wider uppercase font-bold">Pro Tier</span>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant">Manage your institutional-grade portfolio and generate insights for clients.</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 bg-surface border border-outline-variant/20 rounded-xl px-4 py-2">
+        <span class="material-symbols-outlined text-on-surface-variant text-[18px]">search</span>
+        <input id="prop-search" type="text" placeholder="Search propertiesâ€¦" class="bg-transparent border-none outline-none font-label-md text-label-md text-on-surface placeholder:text-outline w-48"/>
+      </div>
+      <button class="md:hidden bg-primary-container text-on-primary font-label-md text-label-md p-2.5 rounded-xl">
+        <span class="material-symbols-outlined">add</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Usage Stats (Horizontal scroll) -->
+  <section class="w-full -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 overflow-x-auto no-scrollbar pb-2">
+    <div class="flex gap-4 w-max md:w-full md:grid md:grid-cols-4">
+      <!-- Reports Generated -->
+      <div class="stat-card bg-surface border border-primary-container/10 rounded-2xl p-5 min-w-[200px] md:min-w-0 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="font-label-sm text-label-sm text-on-surface-variant">Reports Generated</span>
+          <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings:'FILL' 1;">description</span>
+        </div>
+        <div class="flex items-end gap-1.5">
+          <span class="font-headline-md text-headline-md font-semibold text-on-surface">42</span>
+          <span class="font-label-sm text-label-sm text-on-surface-variant mb-1">/ 100</span>
+        </div>
+        <div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+          <div class="bg-primary h-full rounded-full transition-all" style="width:42%"></div>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">58 remaining this month</span>
+      </div>
+
+      <!-- Active Listings -->
+      <div class="stat-card bg-surface border border-primary-container/10 rounded-2xl p-5 min-w-[200px] md:min-w-0 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="font-label-sm text-label-sm text-on-surface-variant">Active Listings</span>
+          <span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings:'FILL' 1;">real_estate_agent</span>
+        </div>
+        <span class="font-headline-md text-headline-md font-semibold text-on-surface">12</span>
+        <div class="flex items-center gap-1 text-tertiary">
+          <span class="material-symbols-outlined text-[14px]">trending_up</span>
+          <span class="font-label-sm text-label-sm">+2 this week</span>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">3 pending review</span>
+      </div>
+
+      <!-- Team Members -->
+      <div class="stat-card bg-[#E1F5EE] border border-primary-container/10 rounded-2xl p-5 min-w-[200px] md:min-w-0 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="font-label-sm text-label-sm text-primary-container">Team Members</span>
+          <span class="material-symbols-outlined text-primary-container text-sm" style="font-variation-settings:'FILL' 1;">group</span>
+        </div>
+        <span class="font-headline-md text-headline-md font-semibold text-on-surface">4 / 10</span>
+        <div class="flex -space-x-2">
+          <div class="w-7 h-7 rounded-full border-2 border-[#E1F5EE] bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-label-sm text-[10px]">JD</div>
+          <div class="w-7 h-7 rounded-full border-2 border-[#E1F5EE] bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-label-sm text-[10px]">MK</div>
+          <div class="w-7 h-7 rounded-full border-2 border-[#E1F5EE] bg-tertiary text-on-tertiary flex items-center justify-center font-label-sm text-label-sm text-[10px]">SL</div>
+          <div class="w-7 h-7 rounded-full border-2 border-[#E1F5EE] bg-surface-container-high text-on-surface flex items-center justify-center font-label-sm text-label-sm text-[10px]">+1</div>
+        </div>
+      </div>
+
+      <!-- Monthly Revenue Impact -->
+      <div class="stat-card bg-surface border border-primary-container/10 rounded-2xl p-5 min-w-[200px] md:min-w-0 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="font-label-sm text-label-sm text-on-surface-variant">Portfolio Value</span>
+          <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings:'FILL' 1;">account_balance</span>
+        </div>
+        <span class="font-headline-md text-headline-md font-semibold text-on-surface">Â£18.2M</span>
+        <div class="flex items-center gap-1 text-tertiary">
+          <span class="material-symbols-outlined text-[14px]">trending_up</span>
+          <span class="font-label-sm text-label-sm">+4.2% YoY</span>
+        </div>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">Across 12 properties</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active Properties Table -->
+  <section class="flex flex-col gap-4">
+    <div class="flex justify-between items-center">
+      <h2 class="font-headline-md text-headline-md text-on-surface">Active Properties</h2>
+      <div class="flex items-center gap-2">
+        <button class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low px-3 py-1.5 rounded-lg transition-colors border border-outline-variant/20">
+          <span class="material-symbols-outlined text-sm">filter_list</span> Filter
+        </button>
+        <button class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low px-3 py-1.5 rounded-lg transition-colors border border-outline-variant/20">
+          <span class="material-symbols-outlined text-sm">sort</span> Sort
+        </button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-surface rounded-2xl border border-outline-variant/20 overflow-hidden" style="box-shadow: 0px 4px 20px rgba(15,110,86,0.02);">
+      <!-- Desktop Table Header -->
+      <div class="hidden md:grid grid-cols-12 gap-4 p-4 bg-surface-container-low border-b border-outline-variant/20 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+        <div class="col-span-5">Property Address</div>
+        <div class="col-span-2">Valuation</div>
+        <div class="col-span-2">PropScore</div>
+        <div class="col-span-1">Status</div>
+        <div class="col-span-2 text-right">Action</div>
+      </div>
+
+      <!-- List Items -->
+      <div class="flex flex-col divide-y divide-outline-variant/10">
+
+        <!-- Item 1 -->
+        <div class="property-row grid grid-cols-1 md:grid-cols-12 gap-4 p-5 items-center transition-colors cursor-pointer">
+          <div class="col-span-1 md:col-span-5 flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-outline opacity-30 text-[28px]">apartment</span>
+            </div>
+            <div>
+              <span class="font-label-md text-label-md text-on-surface block">22 Baker Street, NW1</span>
+              <span class="font-body-md text-body-md text-sm text-on-surface-variant">London, UK Â· 4 bed Â· Terraced</span>
+            </div>
+          </div>
+          <div class="col-span-1 md:col-span-2">
+            <span class="md:hidden font-label-sm text-label-sm text-on-surface-variant block mb-1">Valuation</span>
+            <span class="font-headline-md text-headline-md text-base text-on-surface font-semibold">Â£845,000</span>
+            <span class="text-tertiary font-label-sm text-label-sm block">+2.4% MoM</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex items-center gap-2">
+            <div class="relative w-10 h-10">
+              <svg class="w-full h-full -rotate-90" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#e8e8e3" stroke-width="4"/>
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#0f6e56" stroke-width="4" stroke-dasharray="100.5" stroke-dashoffset="16.1" stroke-linecap="round"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-label-sm text-label-sm text-primary font-bold text-[10px]">84</span>
+              </div>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface">84 / 100</span>
+          </div>
+          <div class="col-span-1 md:col-span-1 flex items-center">
+            <span class="bg-tertiary/10 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-tertiary/20 font-semibold">Listed</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
+            <a href="valuation-report.html" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="property-row grid grid-cols-1 md:grid-cols-12 gap-4 p-5 items-center transition-colors cursor-pointer">
+          <div class="col-span-1 md:col-span-5 flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-outline opacity-30 text-[28px]">home</span>
+            </div>
+            <div>
+              <span class="font-label-md text-label-md text-on-surface block">14 Kensington Palace Gdns</span>
+              <span class="font-body-md text-body-md text-sm text-on-surface-variant">London W8 Â· 5 bed Â· Detached</span>
+            </div>
+          </div>
+          <div class="col-span-1 md:col-span-2">
+            <span class="md:hidden font-label-sm text-label-sm text-on-surface-variant block mb-1">Valuation</span>
+            <span class="font-headline-md text-headline-md text-base text-on-surface font-semibold">Â£4,800,000</span>
+            <span class="text-tertiary font-label-sm text-label-sm block">+1.2% MoM</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex items-center gap-2">
+            <div class="relative w-10 h-10">
+              <svg class="w-full h-full -rotate-90" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#e8e8e3" stroke-width="4"/>
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#0f6e56" stroke-width="4" stroke-dasharray="100.5" stroke-dashoffset="10.1" stroke-linecap="round"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-label-sm text-label-sm text-primary font-bold text-[10px]">90</span>
+              </div>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface">90 / 100</span>
+          </div>
+          <div class="col-span-1 md:col-span-1 flex items-center">
+            <span class="bg-secondary-container/30 text-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-secondary-container/40 font-semibold">Pending</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
+            <a href="valuation-report.html" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="property-row grid grid-cols-1 md:grid-cols-12 gap-4 p-5 items-center transition-colors cursor-pointer">
+          <div class="col-span-1 md:col-span-5 flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-outline opacity-30 text-[28px]">villa</span>
+            </div>
+            <div>
+              <span class="font-label-md text-label-md text-on-surface block">8 Campden Hill Square, W8</span>
+              <span class="font-body-md text-body-md text-sm text-on-surface-variant">London W8 Â· 3 bed Â· Semi-Detached</span>
+            </div>
+          </div>
+          <div class="col-span-1 md:col-span-2">
+            <span class="md:hidden font-label-sm text-label-sm text-on-surface-variant block mb-1">Valuation</span>
+            <span class="font-headline-md text-headline-md text-base text-on-surface font-semibold">Â£1,250,000</span>
+            <span class="text-error font-label-sm text-label-sm block">-0.8% MoM</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex items-center gap-2">
+            <div class="relative w-10 h-10">
+              <svg class="w-full h-full -rotate-90" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#e8e8e3" stroke-width="4"/>
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#735c00" stroke-width="4" stroke-dasharray="100.5" stroke-dashoffset="28.1" stroke-linecap="round"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-label-sm text-label-sm text-secondary font-bold text-[10px]">72</span>
+              </div>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface">72 / 100</span>
+          </div>
+          <div class="col-span-1 md:col-span-1 flex items-center">
+            <span class="bg-tertiary/10 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-tertiary/20 font-semibold">Listed</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
+            <a href="valuation-report.html" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="property-row grid grid-cols-1 md:grid-cols-12 gap-4 p-5 items-center transition-colors cursor-pointer">
+          <div class="col-span-1 md:col-span-5 flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-outline opacity-30 text-[28px]">business</span>
+            </div>
+            <div>
+              <span class="font-label-md text-label-md text-on-surface block">42 Victoria Road, W8 5RQ</span>
+              <span class="font-body-md text-body-md text-sm text-on-surface-variant">London W8 Â· Commercial Â· Retail</span>
+            </div>
+          </div>
+          <div class="col-span-1 md:col-span-2">
+            <span class="md:hidden font-label-sm text-label-sm text-on-surface-variant block mb-1">Valuation</span>
+            <span class="font-headline-md text-headline-md text-base text-on-surface font-semibold">Â£850,000</span>
+            <span class="text-on-surface-variant font-label-sm text-label-sm block">Stable</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex items-center gap-2">
+            <div class="relative w-10 h-10">
+              <svg class="w-full h-full -rotate-90" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#e8e8e3" stroke-width="4"/>
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#6f7a74" stroke-width="4" stroke-dasharray="100.5" stroke-dashoffset="35.2" stroke-linecap="round"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-label-sm text-label-sm text-outline font-bold text-[10px]">65</span>
+              </div>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface">65 / 100</span>
+          </div>
+          <div class="col-span-1 md:col-span-1 flex items-center">
+            <span class="bg-error/10 text-error font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-error/20 font-semibold">Expired</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
+            <a href="valuation-report.html" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="property-row grid grid-cols-1 md:grid-cols-12 gap-4 p-5 items-center transition-colors cursor-pointer">
+          <div class="col-span-1 md:col-span-5 flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-outline opacity-30 text-[28px]">home</span>
+            </div>
+            <div>
+              <span class="font-label-md text-label-md text-on-surface block">5 Princes Gate, SW7 1QJ</span>
+              <span class="font-body-md text-body-md text-sm text-on-surface-variant">London SW7 Â· 6 bed Â· Detached</span>
+            </div>
+          </div>
+          <div class="col-span-1 md:col-span-2">
+            <span class="md:hidden font-label-sm text-label-sm text-on-surface-variant block mb-1">Valuation</span>
+            <span class="font-headline-md text-headline-md text-base text-on-surface font-semibold">Â£7,200,000</span>
+            <span class="text-tertiary font-label-sm text-label-sm block">+3.1% MoM</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex items-center gap-2">
+            <div class="relative w-10 h-10">
+              <svg class="w-full h-full -rotate-90" viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#e8e8e3" stroke-width="4"/>
+                <circle cx="20" cy="20" r="16" fill="none" stroke="#0f6e56" stroke-width="4" stroke-dasharray="100.5" stroke-dashoffset="8.0" stroke-linecap="round"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-label-sm text-label-sm text-primary font-bold text-[10px]">92</span>
+              </div>
+            </div>
+            <span class="font-label-sm text-label-sm text-on-surface">92 / 100</span>
+          </div>
+          <div class="col-span-1 md:col-span-1 flex items-center">
+            <span class="bg-tertiary/10 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-tertiary/20 font-semibold">Listed</span>
+          </div>
+          <div class="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
+            <a href="valuation-report.html" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Table Footer -->
+      <div class="p-4 bg-surface-container-low border-t border-outline-variant/10 flex items-center justify-between">
+        <span class="font-label-sm text-label-sm text-on-surface-variant">Showing 5 of 12 properties</span>
+        <button class="font-label-md text-label-md text-primary hover:underline flex items-center gap-1">
+          View All <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Activity -->
+  <section class="flex flex-col gap-4 hidden md:flex">
+    <h2 class="font-headline-md text-headline-md text-on-surface">Recent Activity</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-surface border border-outline-variant/20 rounded-xl p-4 flex items-start gap-3" style="box-shadow:0 4px 20px rgba(15,110,86,0.02);">
+        <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-primary text-[16px]">description</span>
+        </div>
+        <div>
+          <p class="font-label-sm text-label-sm text-on-surface">Report generated for 22 Baker St</p>
+          <p class="text-xs text-on-surface-variant mt-1">By Marcus K. Â· 2 hours ago</p>
+        </div>
+      </div>
+      <div class="bg-surface border border-outline-variant/20 rounded-xl p-4 flex items-start gap-3" style="box-shadow:0 4px 20px rgba(15,110,86,0.02);">
+        <div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-tertiary text-[16px]">add_home</span>
+        </div>
+        <div>
+          <p class="font-label-sm text-label-sm text-on-surface">New listing added: 5 Princes Gate</p>
+          <p class="text-xs text-on-surface-variant mt-1">By Sarah L. Â· 5 hours ago</p>
+        </div>
+      </div>
+      <div class="bg-surface border border-outline-variant/20 rounded-xl p-4 flex items-start gap-3" style="box-shadow:0 4px 20px rgba(15,110,86,0.02);">
+        <div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-secondary text-[16px]">person_add</span>
+        </div>
+        <div>
+          <p class="font-label-sm text-label-sm text-on-surface">Team member invited: R. Ahmed</p>
+          <p class="text-xs text-on-surface-variant mt-1">By Admin Â· Yesterday</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Mobile Bottom NavBar -->
+<nav class="md:hidden bg-surface border-t border-outline-variant/30 shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 rounded-t-2xl">
+  <a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200" href="agency-dashboard.html">
+    <span class="material-symbols-outlined mb-1" style="font-variation-settings:'FILL' 1;">real_estate_agent</span>
+    <span class="font-label-sm text-label-sm">Listings</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 duration-200" href="valuation-report.html">
+    <span class="material-symbols-outlined mb-1">description</span>
+    <span class="font-label-sm text-label-sm">Reports</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 duration-200" href="#">
+    <span class="material-symbols-outlined mb-1">group</span>
+    <span class="font-label-sm text-label-sm">Team</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 duration-200" href="pricing.html">
+    <span class="material-symbols-outlined mb-1">settings</span>
+    <span class="font-label-sm text-label-sm">Settings</span>
+  </a>
+</nav>
+
+  <script src="shared.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const search = document.getElementById('prop-search');
+    const rows = document.querySelectorAll('.property-row');
+    if (search) {
+      search.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        rows.forEach(row => {
+          const text = row.textContent.toLowerCase();
+          row.style.display = text.includes(term) ? '' : 'none';
+        });
+      });
+    }
+
+    // Mock buttons
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.textContent.includes('Filter') || btn.textContent.includes('Sort')) {
+        btn.addEventListener('click', () => {
+          if (window.pwToast) window.pwToast(btn.textContent.trim() + ' menu opened', 'tune');
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>

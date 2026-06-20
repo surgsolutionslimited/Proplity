@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Proplity | 404 - Page Not Found</title>
+  <meta name="description" content="The page you are looking for does not exist."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant":"#005312","on-error":"#ffffff","tertiary-fixed-dim":"#88d982","surface-container":"#eeeee9","on-primary":"#ffffff","surface-dim":"#dadad5","secondary-container":"#fed65b","on-primary-fixed-variant":"#00513e","inverse-surface":"#2f312e","tertiary-fixed":"#a3f69c","on-background":"#1a1c19","on-error-container":"#93000a","on-primary-fixed":"#002117","secondary":"#735c00","primary-fixed-dim":"#84d6b9","tertiary-container":"#1f7027","surface-tint":"#086b53","on-secondary":"#ffffff","on-surface-variant":"#3f4944","surface-container-highest":"#e3e3de","background":"#fafaf5","on-surface":"#1a1c19","outline":"#6f7a74","secondary-fixed":"#ffe088","on-tertiary-fixed":"#002204","on-secondary-fixed":"#241a00","primary-fixed":"#a0f3d4","outline-variant":"#bec9c3","surface":"#fafaf5","surface-container-high":"#e8e8e3","on-primary-container":"#9aedcf","primary":"#005440","inverse-on-surface":"#f1f1ec","error":"#ba1a1a","tertiary":"#005613","secondary-fixed-dim":"#e9c349","on-tertiary-container":"#9ef197","on-secondary-fixed-variant":"#574500","surface-variant":"#e3e3de","inverse-primary":"#84d6b9","surface-bright":"#fafaf5","on-secondary-container":"#745c00","primary-container":"#0f6e56","surface-container-lowest":"#ffffff","surface-container-low":"#f4f4ef","error-container":"#ffdad6","on-tertiary":"#ffffff"
+          },
+          borderRadius: { "DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","2xl":"1rem","full":"9999px" },
+          spacing: { "gutter":"24px","container-max":"1440px","margin-mobile":"20px","margin-desktop":"64px","base":"8px" },
+          fontFamily: { "headline-md":["Geist"],"body-lg":["Inter"],"headline-lg-mobile":["Geist"],"label-md":["Geist"],"display":["Geist"],"label-sm":["Geist"],"headline-lg":["Geist"],"body-md":["Inter"] }
+        }
+      }
+    }
+  </script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+
+<!-- TopAppBar Desktop -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop py-4 bg-surface border-b border-outline-variant/20 sticky top-0 z-50">
+  <div class="flex items-center gap-4">
+    <a href="index.html" class="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity">
+      <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+    </a>
+  </div>
+  <nav class="flex gap-8">
+    <a data-nav-link class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity flex items-center gap-2" href="index.html">
+      <span class="material-symbols-outlined">search</span> Search
+    </a>
+    <a data-nav-link class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity flex items-center gap-2" href="property-insights.html">
+      <span class="material-symbols-outlined">dashboard</span> Dashboard
+    </a>
+    <a data-nav-link class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity flex items-center gap-2" href="comparable-sales.html">
+      <span class="material-symbols-outlined">map</span> Map
+    </a>
+    <a data-nav-link class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity flex items-center gap-2" href="pricing.html">
+      <span class="material-symbols-outlined">sell</span> Pricing
+    </a>
+  </nav>
+  <div class="flex items-center gap-4">
+    <a href="agency-dashboard.html" class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/30 flex items-center justify-center hover:opacity-80 transition-opacity">
+      <span class="material-symbols-outlined text-on-surface-variant">person</span>
+    </a>
+  </div>
+</header>
+
+<!-- Mobile TopAppBar -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile py-4 bg-surface border-b border-outline-variant/20 sticky top-0 z-50">
+  <a href="index.html" class="flex items-center gap-2 text-primary">
+    <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+  </a>
+  <button data-drawer-open aria-label="Menu" class="text-on-surface-variant p-2 rounded-lg hover:bg-surface-container">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</header>
+
+<!-- Main Error Content -->
+<main class="flex-grow flex flex-col items-center justify-center text-center px-margin-mobile py-20 relative overflow-hidden">
+  
+  <!-- Subtle Background Pattern -->
+  <div class="absolute inset-0 pointer-events-none opacity-5 flex items-center justify-center">
+    <span class="material-symbols-outlined" style="font-size:400px;">explore_off</span>
+  </div>
+
+  <div class="relative z-10 max-w-md w-full">
+    <div class="w-20 h-20 bg-error-container/50 text-error rounded-full flex items-center justify-center mx-auto mb-6">
+      <span class="material-symbols-outlined text-[40px]">location_off</span>
+    </div>
+    
+    <h1 class="font-display text-on-surface mb-2" style="font-size: 80px; font-weight: 800; line-height: 1;">404</h1>
+    <h2 class="font-headline-md text-headline-md text-on-surface mb-4">Property Not Found</h2>
+    
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+      We couldn't find the page you're looking for. It might have been sold, removed, or the URL might be incorrect.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button onclick="history.back()" class="bg-surface border border-outline-variant/30 text-on-surface font-label-md text-label-md px-6 py-3 rounded-xl hover:bg-surface-container-high transition-colors flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+        Go Back
+      </button>
+      <a href="index.html" class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 font-semibold">
+        <span class="material-symbols-outlined text-[18px]">search</span>
+        New Search
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<script src="shared.js"></script>
+</body>
+</html>

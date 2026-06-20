@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Proplity | Plans &amp; Pricing â€” Institutional Grade Analysis for Every Investor</title>
+  <meta name="description" content="Choose the Proplity plan that fits your investment strategy. From individual buyers to large agencies managing portfolios."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant":"#005312","on-error":"#ffffff","tertiary-fixed-dim":"#88d982","surface-container":"#eeeee9","on-primary":"#ffffff","surface-dim":"#dadad5","secondary-container":"#fed65b","on-primary-fixed-variant":"#00513e","inverse-surface":"#2f312e","tertiary-fixed":"#a3f69c","on-background":"#1a1c19","on-error-container":"#93000a","on-primary-fixed":"#002117","secondary":"#735c00","primary-fixed-dim":"#84d6b9","tertiary-container":"#1f7027","surface-tint":"#086b53","on-secondary":"#ffffff","on-surface-variant":"#3f4944","surface-container-highest":"#e3e3de","background":"#fafaf5","on-surface":"#1a1c19","outline":"#6f7a74","secondary-fixed":"#ffe088","on-tertiary-fixed":"#002204","on-secondary-fixed":"#241a00","primary-fixed":"#a0f3d4","outline-variant":"#bec9c3","surface":"#fafaf5","surface-container-high":"#e8e8e3","on-primary-container":"#9aedcf","primary":"#005440","inverse-on-surface":"#f1f1ec","error":"#ba1a1a","tertiary":"#005613","secondary-fixed-dim":"#e9c349","on-tertiary-container":"#9ef197","on-secondary-fixed-variant":"#574500","surface-variant":"#e3e3de","inverse-primary":"#84d6b9","surface-bright":"#fafaf5","on-secondary-container":"#745c00","primary-container":"#0f6e56","surface-container-lowest":"#ffffff","surface-container-low":"#f4f4ef","error-container":"#ffdad6","on-tertiary":"#ffffff"
+          },
+          borderRadius: { "DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","2xl":"1rem","full":"9999px" },
+          spacing: { "gutter":"24px","container-max":"1440px","margin-mobile":"20px","margin-desktop":"64px","base":"8px" },
+          fontFamily: { "headline-md":["Geist"],"body-lg":["Inter"],"headline-lg-mobile":["Geist"],"label-md":["Geist"],"display":["Geist"],"label-sm":["Geist"],"headline-lg":["Geist"],"body-md":["Inter"] },
+          fontSize: {
+            "headline-md":["24px",{"lineHeight":"1.3","fontWeight":"500"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.01em","fontWeight":"500"}],"display":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"1.2","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family:'Inter',sans-serif; background-color:#fafaf5; }
+    h1,h2,h3,h4,h5,h6 { font-family:'Geist',sans-serif; }
+    .plan-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .plan-card:hover { transform: translateY(-4px); }
+    .plan-card-featured { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(15,110,86,0.12); }
+    .plan-card-featured:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(15,110,86,0.16); }
+    details summary { list-style: none; cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 0.2s; }
+  </style>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body class="text-on-background antialiased pb-24 md:pb-0 min-h-screen flex flex-col">
+
+<!-- Header Desktop -->
+<header class="bg-surface flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-40 border-b border-outline-variant/10 hidden md:flex">
+  <a href="index.html" class="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity">
+    <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+  </a>
+  <nav class="flex items-center gap-6">
+    <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-1.5" href="index.html"><span class="material-symbols-outlined text-[18px]">search</span> Search</a>
+    <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-1.5" href="property-insights.html"><span class="material-symbols-outlined text-[18px]">dashboard</span> Dashboard</a>
+    <a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-1.5" href="comparable-sales.html"><span class="material-symbols-outlined text-[18px]">map</span> Map</a>
+    <a class="text-primary font-label-md text-label-md font-bold flex items-center gap-1.5" href="pricing.html"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">sell</span> Pricing</a>
+  </nav>
+  <a href="agency-dashboard.html" class="w-9 h-9 rounded-full overflow-hidden border border-outline-variant/30 flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity bg-surface-container-high flex items-center justify-center">
+    <span class="material-symbols-outlined text-on-surface-variant">person</span>
+  </a>
+</header>
+  <!-- Header Mobile -->
+<header class="bg-surface flex justify-between items-center w-full px-margin-mobile py-4 sticky top-0 z-40 border-b border-outline-variant/10 md:hidden">
+  <a href="index.html" class="flex items-center gap-2 text-primary">
+    <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+  </a>
+  <button data-drawer-open aria-label="Menu" class="text-on-surface-variant p-2 rounded-lg hover:bg-surface-container">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</header>
+
+<main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-16 space-y-16 flex-grow">
+
+  <!-- Header Section -->
+  <section class="text-center max-w-3xl mx-auto space-y-6">
+    <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/15 text-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm">
+      <span class="material-symbols-outlined text-[14px]" style="font-variation-settings:'FILL' 1;">local_offer</span>
+      Simple, transparent pricing
+    </div>
+    <h1 class="font-display text-display text-on-surface">Institutional Grade Analysis. <br/><span class="text-primary-container">Scaled for You.</span></h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">Choose the plan that fits your investment strategy. From individual buyers finding their first property to agencies managing large portfolios.</p>
+    <!-- Plan Toggle -->
+    <div class="inline-flex bg-surface-container-low p-1 rounded-xl border border-outline-variant/20 mx-auto mt-8">
+      <button id="toggle-buyer" class="px-6 py-2.5 rounded-lg font-label-md text-label-md bg-surface shadow-sm text-on-surface transition-all font-semibold" onclick="showPlans('buyer')">Buyer Plans</button>
+      <button id="toggle-agency" class="px-6 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" onclick="showPlans('agency')">Agency Plans</button>
+    </div>
+  </section>
+
+  <!-- Buyer Plans -->
+  <section id="buyer-plans" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <!-- Free -->
+    <div class="plan-card bg-surface rounded-2xl p-8 border border-outline-variant/30 flex flex-col">
+      <div class="mb-8">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Free</h3>
+        <div class="flex items-baseline gap-1">
+          <span class="font-headline-lg text-headline-lg text-on-surface">Â£0</span>
+          <span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-3">Essential tools for casual browsing.</p>
+      </div>
+      <ul class="space-y-4 mb-8 flex-grow">
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Basic property valuation</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Standard search filters</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">3 searches per month</span></li>
+        <li class="flex items-start gap-3 opacity-40"><span class="material-symbols-outlined text-outline text-[20px]">cancel</span><span class="font-body-md text-body-md text-on-surface-variant">News signals</span></li>
+        <li class="flex items-start gap-3 opacity-40"><span class="material-symbols-outlined text-outline text-[20px]">cancel</span><span class="font-body-md text-body-md text-on-surface-variant">Investment score</span></li>
+      </ul>
+      <button class="w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Current Plan</button>
+    </div>
+
+    <!-- Buyer -->
+    <div class="plan-card bg-surface rounded-2xl p-8 border border-outline-variant/30 flex flex-col">
+      <div class="mb-8">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Buyer</h3>
+        <div class="flex items-baseline gap-1">
+          <span class="font-headline-lg text-headline-lg text-on-surface">Â£19</span>
+          <span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-3">Advanced insights for active buyers.</p>
+      </div>
+      <ul class="space-y-4 mb-8 flex-grow">
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Everything in Free</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Real-time news signals</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Proplity Investment Score</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">25 searches per month</span></li>
+        <li class="flex items-start gap-3 opacity-40"><span class="material-symbols-outlined text-outline text-[20px]">cancel</span><span class="font-body-md text-body-md text-on-surface-variant">Predictive yield modeling</span></li>
+      </ul>
+      <button class="w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Upgrade to Buyer</button>
+    </div>
+
+    <!-- Investor (Featured) -->
+    <div class="plan-card plan-card-featured bg-surface rounded-2xl p-8 border-2 border-primary-container flex flex-col relative">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-container text-on-primary font-label-sm text-label-sm px-4 py-1.5 rounded-full uppercase tracking-wider font-bold whitespace-nowrap">Most Popular</div>
+      <div class="mb-8 mt-2">
+        <h3 class="font-headline-md text-headline-md text-primary-container mb-3">Investor</h3>
+        <div class="flex items-baseline gap-1">
+          <span class="font-headline-lg text-headline-lg text-on-surface">Â£49</span>
+          <span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-3">Institutional grade tools for serious investors.</p>
+      </div>
+      <ul class="space-y-4 mb-8 flex-grow">
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface font-medium">Everything in Buyer</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Unlimited deep-dive reports</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Full comparable sales history</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Predictive yield modeling</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">PDF report exports</span></li>
+      </ul>
+      <button class="w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Upgrade to Investor</button>
+    </div>
+  </section>
+
+  <!-- Agency Plans (Hidden by default) -->
+  <section id="agency-plans" class="hidden grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <!-- Starter -->
+    <div class="plan-card bg-surface rounded-2xl p-8 border border-outline-variant/30 flex flex-col">
+      <div class="mb-8">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Agency Starter</h3>
+        <div class="flex items-baseline gap-1">
+          <span class="font-headline-lg text-headline-lg text-on-surface">Â£149</span>
+          <span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-3">For small teams of up to 3 agents.</p>
+      </div>
+      <ul class="space-y-4 mb-8 flex-grow">
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Up to 3 user seats</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">100 reports/month</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Basic API Access</span></li>
+        <li class="flex items-start gap-3 opacity-40"><span class="material-symbols-outlined text-outline text-[20px]">cancel</span><span class="font-body-md text-body-md text-on-surface-variant">White-label reports</span></li>
+      </ul>
+      <button class="w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Start Free Trial</button>
+    </div>
+
+    <!-- Pro (Featured) -->
+    <div class="plan-card plan-card-featured bg-surface rounded-2xl p-8 border-2 border-primary-container flex flex-col relative">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-container text-on-primary font-label-sm text-label-sm px-4 py-1.5 rounded-full uppercase tracking-wider font-bold whitespace-nowrap">Most Popular</div>
+      <div class="mb-8 mt-2">
+        <h3 class="font-headline-md text-headline-md text-primary-container mb-3">Agency Pro</h3>
+        <div class="flex items-baseline gap-1">
+          <span class="font-headline-lg text-headline-lg text-on-surface">Â£349</span>
+          <span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-3">For growing brokerages and teams.</p>
+      </div>
+      <ul class="space-y-4 mb-8 flex-grow">
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface font-medium">Everything in Starter</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Up to 10 user seats</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Full API Access</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">White-label reports</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Portfolio analytics dashboard</span></li>
+      </ul>
+      <button class="w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Contact Sales</button>
+    </div>
+
+    <!-- Enterprise -->
+    <div class="plan-card bg-surface rounded-2xl p-8 border border-outline-variant/30 flex flex-col">
+      <div class="mb-8">
+        <h3 class="font-headline-md text-headline-md text-on-surface mb-3">Enterprise</h3>
+        <div class="flex items-baseline gap-1">
+          <span class="font-headline-lg text-headline-lg text-on-surface">Â£749+</span>
+          <span class="font-body-md text-body-md text-on-surface-variant">/mo</span>
+        </div>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-3">Custom solutions for large institutions.</p>
+      </div>
+      <ul class="space-y-4 mb-8 flex-grow">
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Unlimited seats</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Dedicated Account Manager</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">Custom integration support</span></li>
+        <li class="flex items-start gap-3"><span class="material-symbols-outlined text-primary-container text-[20px]" style="font-variation-settings:'FILL' 1;">check_circle</span><span class="font-body-md text-body-md text-on-surface">SLA & compliance reports</span></li>
+      </ul>
+      <button class="w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Contact Sales</button>
+    </div>
+  </section>
+
+  <!-- Feature Comparison Table -->
+  <section class="max-w-5xl mx-auto overflow-x-auto">
+    <h2 class="font-headline-md text-headline-md text-on-surface mb-6">Feature Comparison</h2>
+    <div class="min-w-[700px] bg-surface border border-outline-variant/20 rounded-2xl overflow-hidden">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-surface-container-low border-b border-outline-variant/20">
+            <th class="p-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider w-1/4">Feature</th>
+            <th class="p-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider w-1/4 text-center">Free</th>
+            <th class="p-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider w-1/4 text-center bg-surface-container-high/30">Buyer</th>
+            <th class="p-4 font-label-sm text-label-sm text-primary-container uppercase tracking-wider w-1/4 text-center bg-primary-container/5">Investor</th>
+          </tr>
+        </thead>
+        <tbody class="font-body-md text-body-md text-on-surface divide-y divide-outline-variant/10">
+          <tr class="hover:bg-surface-container-lowest/50 transition-colors">
+            <td class="p-4 font-medium">AI Valuation Accuracy</td>
+            <td class="p-4 text-center text-on-surface-variant">Standard</td>
+            <td class="p-4 text-center text-on-surface-variant bg-surface-container-high/10">Enhanced</td>
+            <td class="p-4 text-center font-medium text-primary-container bg-primary-container/5">Maximum</td>
+          </tr>
+          <tr class="hover:bg-surface-container-lowest/50 transition-colors">
+            <td class="p-4 font-medium">News Alerts</td>
+            <td class="p-4 text-center"><span class="material-symbols-outlined text-outline text-[18px]">remove</span></td>
+            <td class="p-4 text-center bg-surface-container-high/10"><span class="material-symbols-outlined text-primary-container text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span></td>
+            <td class="p-4 text-center bg-primary-container/5"><span class="material-symbols-outlined text-primary-container text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span></td>
+          </tr>
+          <tr class="hover:bg-surface-container-lowest/50 transition-colors">
+            <td class="p-4 font-medium">Comparables History</td>
+            <td class="p-4 text-center text-on-surface-variant">Last 3 Years</td>
+            <td class="p-4 text-center text-on-surface-variant bg-surface-container-high/10">Last 10 Years</td>
+            <td class="p-4 text-center font-medium text-primary-container bg-primary-container/5">Full History</td>
+          </tr>
+          <tr class="hover:bg-surface-container-lowest/50 transition-colors">
+            <td class="p-4 font-medium">Investment Score</td>
+            <td class="p-4 text-center"><span class="material-symbols-outlined text-outline text-[18px]">remove</span></td>
+            <td class="p-4 text-center bg-surface-container-high/10"><span class="material-symbols-outlined text-primary-container text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span></td>
+            <td class="p-4 text-center bg-primary-container/5"><span class="material-symbols-outlined text-primary-container text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span></td>
+          </tr>
+          <tr class="hover:bg-surface-container-lowest/50 transition-colors">
+            <td class="p-4 font-medium">PDF Export</td>
+            <td class="p-4 text-center"><span class="material-symbols-outlined text-outline text-[18px]">remove</span></td>
+            <td class="p-4 text-center bg-surface-container-high/10"><span class="material-symbols-outlined text-outline text-[18px]">remove</span></td>
+            <td class="p-4 text-center bg-primary-container/5"><span class="material-symbols-outlined text-primary-container text-[18px]" style="font-variation-settings:'FILL' 1;">check_circle</span></td>
+          </tr>
+          <tr class="hover:bg-surface-container-lowest/50 transition-colors">
+            <td class="p-4 font-medium">Yield Modeling</td>
+            <td class="p-4 text-center"><span class="material-symbols-outlined text-outline text-[18px]">remove</span></td>
+            <td class="p-4 text-center bg-surface-container-high/10"><span class="material-symbols-outlined text-outline text-[18px]">remove</span></td>
+            <td class="p-4 text-center bg-primary-container/5">Predictive</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="max-w-3xl mx-auto">
+    <h2 class="font-headline-md text-headline-md text-on-surface mb-8 text-center">Frequently Asked Questions</h2>
+    <div class="space-y-3">
+      <!-- Item 1 -->
+      <div class="pw-faq-item bg-surface border border-outline-variant/20 rounded-xl overflow-hidden">
+        <button class="pw-faq-trigger w-full flex justify-between items-center p-5 font-label-md text-label-md text-on-surface text-left">
+          <span>How accurate are the AI valuations?</span>
+          <span class="material-symbols-outlined text-on-surface-variant pw-faq-chevron flex-shrink-0">keyboard_arrow_down</span>
+        </button>
+        <div class="pw-faq-body">
+          <p class="font-body-md text-body-md text-on-surface-variant px-5 pb-5 leading-relaxed">Our AI engine analyses over 20 million historical transactions, planning data, school ratings, transport links, and real-time news to deliver valuations with a typical margin of Â±5%. Investor plan subscribers receive enhanced accuracy with a Â±3% margin.</p>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="pw-faq-item bg-surface border border-outline-variant/20 rounded-xl overflow-hidden">
+        <button class="pw-faq-trigger w-full flex justify-between items-center p-5 font-label-md text-label-md text-on-surface text-left">
+          <span>Can I cancel my subscription at any time?</span>
+          <span class="material-symbols-outlined text-on-surface-variant pw-faq-chevron flex-shrink-0">keyboard_arrow_down</span>
+        </button>
+        <div class="pw-faq-body">
+          <p class="font-body-md text-body-md text-on-surface-variant px-5 pb-5 leading-relaxed">Yes. You can cancel at any time from your account settings. Your access continues until the end of the current billing period, and you will not be charged again.</p>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="pw-faq-item bg-surface border border-outline-variant/20 rounded-xl overflow-hidden">
+        <button class="pw-faq-trigger w-full flex justify-between items-center p-5 font-label-md text-label-md text-on-surface text-left">
+          <span>What data sources does Proplity use?</span>
+          <span class="material-symbols-outlined text-on-surface-variant pw-faq-chevron flex-shrink-0">keyboard_arrow_down</span>
+        </button>
+        <div class="pw-faq-body">
+          <p class="font-body-md text-body-md text-on-surface-variant px-5 pb-5 leading-relaxed">We aggregate data from the Land Registry, Ordnance Survey, ONS housing statistics, Ofsted school inspections, planning portals, and over 50 licensed news sources â€” all updated daily and fully compliant with UK GDPR and FCA guidelines.</p>
+        </div>
+      </div>
+      <!-- Item 4 -->
+      <div class="pw-faq-item bg-surface border border-outline-variant/20 rounded-xl overflow-hidden">
+        <button class="pw-faq-trigger w-full flex justify-between items-center p-5 font-label-md text-label-md text-on-surface text-left">
+          <span>Is there an API for agencies?</span>
+          <span class="material-symbols-outlined text-on-surface-variant pw-faq-chevron flex-shrink-0">keyboard_arrow_down</span>
+        </button>
+        <div class="pw-faq-body">
+          <p class="font-body-md text-body-md text-on-surface-variant px-5 pb-5 leading-relaxed">Yes. Agency Starter plans include basic API access, and Agency Pro and Enterprise plans include full REST API access with webhook support for real-time data integration into your existing CRM systems.</p>
+        </div>
+      </div>
+      <!-- Item 5 -->
+      <div class="pw-faq-item bg-surface border border-outline-variant/20 rounded-xl overflow-hidden">
+        <button class="pw-faq-trigger w-full flex justify-between items-center p-5 font-label-md text-label-md text-on-surface text-left">
+          <span>Is my data secure?</span>
+          <span class="material-symbols-outlined text-on-surface-variant pw-faq-chevron flex-shrink-0">keyboard_arrow_down</span>
+        </button>
+        <div class="pw-faq-body">
+          <p class="font-body-md text-body-md text-on-surface-variant px-5 pb-5 leading-relaxed">Absolutely. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We are fully GDPR compliant and never sell your personal data to third parties. Our infrastructure is hosted on ISO 27001 certified cloud providers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Mobile Bottom NavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface border-t border-outline-variant/30 shadow-lg rounded-t-2xl">
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="index.html"><span class="material-symbols-outlined mb-1">search</span><span class="font-label-sm text-label-sm">Search</span></a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="property-insights.html"><span class="material-symbols-outlined mb-1">dashboard</span><span class="font-label-sm text-label-sm">Dashboard</span></a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1" href="comparable-sales.html"><span class="material-symbols-outlined mb-1">map</span><span class="font-label-sm text-label-sm">Map</span></a>
+  <a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1" href="pricing.html"><span class="material-symbols-outlined mb-1" style="font-variation-settings:'FILL' 1;">settings</span><span class="font-label-sm text-label-sm">Settings</span></a>
+</nav>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/20 w-full px-margin-mobile md:px-margin-desktop py-8 flex flex-col md:flex-row items-center justify-between gap-4 hidden md:flex">
+  <div class="font-headline-md text-headline-md text-primary font-bold">Proplity</div>
+  <div class="flex gap-6 font-label-sm text-label-sm">
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Investment Disclaimer</a>
+  </div>
+  <p class="font-body-md text-body-md text-on-surface-variant text-sm">Â© 2024 Proplity Investment Platform.</p>
+</footer>
+
+<script>
+  function showPlans(type) {
+    const buyerBtn = document.getElementById('toggle-buyer');
+    const agencyBtn = document.getElementById('toggle-agency');
+    const buyerPlans = document.getElementById('buyer-plans');
+    const agencyPlans = document.getElementById('agency-plans');
+    if (type === 'buyer') {
+      buyerBtn.className = 'px-6 py-2.5 rounded-lg font-label-md text-label-md bg-surface shadow-sm text-on-surface transition-all font-semibold';
+      agencyBtn.className = 'px-6 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all';
+      buyerPlans.classList.remove('hidden'); buyerPlans.classList.add('grid');
+      agencyPlans.classList.add('hidden'); agencyPlans.classList.remove('grid');
+    } else {
+      agencyBtn.className = 'px-6 py-2.5 rounded-lg font-label-md text-label-md bg-surface shadow-sm text-on-surface transition-all font-semibold';
+      buyerBtn.className = 'px-6 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all';
+      agencyPlans.classList.remove('hidden'); agencyPlans.classList.add('grid');
+      buyerPlans.classList.add('hidden'); buyerPlans.classList.remove('grid');
+    }
+  }
+</script>
+  <script src="shared.js"></script>
+</body>
+</html>

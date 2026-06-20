@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Proplity | Property Insights â€” 22 Baker Street, London NW1</title>
+  <meta name="description" content="Institutional-grade property analytics for 22 Baker Street. AI valuation, investment score, news signals, and comparable sales data."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>`n  <link rel="stylesheet" href="styles.css"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant":"#005312","on-error":"#ffffff","tertiary-fixed-dim":"#88d982","surface-container":"#eeeee9","on-primary":"#ffffff","surface-dim":"#dadad5","secondary-container":"#fed65b","on-primary-fixed-variant":"#00513e","inverse-surface":"#2f312e","tertiary-fixed":"#a3f69c","on-background":"#1a1c19","on-error-container":"#93000a","on-primary-fixed":"#002117","secondary":"#735c00","primary-fixed-dim":"#84d6b9","tertiary-container":"#1f7027","surface-tint":"#086b53","on-secondary":"#ffffff","on-surface-variant":"#3f4944","surface-container-highest":"#e3e3de","background":"#fafaf5","on-surface":"#1a1c19","outline":"#6f7a74","secondary-fixed":"#ffe088","on-tertiary-fixed":"#002204","on-secondary-fixed":"#241a00","primary-fixed":"#a0f3d4","outline-variant":"#bec9c3","surface":"#fafaf5","surface-container-high":"#e8e8e3","on-primary-container":"#9aedcf","primary":"#005440","inverse-on-surface":"#f1f1ec","error":"#ba1a1a","tertiary":"#005613","secondary-fixed-dim":"#e9c349","on-tertiary-container":"#9ef197","on-secondary-fixed-variant":"#574500","surface-variant":"#e3e3de","inverse-primary":"#84d6b9","surface-bright":"#fafaf5","on-secondary-container":"#745c00","primary-container":"#0f6e56","surface-container-lowest":"#ffffff","surface-container-low":"#f4f4ef","error-container":"#ffdad6","on-tertiary":"#ffffff"
+          },
+          borderRadius: { "DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","2xl":"1rem","full":"9999px" },
+          spacing: { "gutter":"24px","container-max":"1440px","margin-mobile":"20px","margin-desktop":"64px","base":"8px" },
+          fontFamily: { "headline-md":["Geist"],"body-lg":["Inter"],"headline-lg-mobile":["Geist"],"label-md":["Geist"],"display":["Geist"],"label-sm":["Geist"],"headline-lg":["Geist"],"body-md":["Inter"] },
+          fontSize: {
+            "headline-md":["24px",{"lineHeight":"1.3","fontWeight":"500"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.01em","fontWeight":"500"}],"display":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"1.2","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #fafaf5; color: #1a1c19; font-family: 'Inter', sans-serif; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Geist', sans-serif; }
+    .progress-ring__circle { transition: stroke-dashoffset 1.2s ease-in-out; transform: rotate(-90deg); transform-origin: 50% 50%; }
+    .metric-card { box-shadow: 0px 4px 20px rgba(15,110,86,0.02); transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s; }
+    .metric-card:hover { box-shadow: 0px 8px 30px rgba(15,110,86,0.06); transform: translateY(-1px); }
+  </style>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+
+<!-- TopAppBar Desktop -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop py-4 bg-surface border-b border-outline-variant/20 sticky top-0 z-50">
+  <div class="flex items-center gap-4">
+    <a href="index.html" class="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity">
+      <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+    </a>
+  </div>
+  <nav class="flex gap-8">
+    <a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity flex items-center gap-2" href="index.html">
+      <span class="material-symbols-outlined">search</span> Search
+    </a>
+    <a class="text-primary font-label-md text-label-md font-bold flex items-center gap-2" href="property-insights.html">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">dashboard</span> Dashboard
+    </a>
+    <a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity flex items-center gap-2" href="comparable-sales.html">
+      <span class="material-symbols-outlined">map</span> Map
+    </a>
+    <a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity flex items-center gap-2" href="pricing.html">
+      <span class="material-symbols-outlined">sell</span> Pricing
+    </a>
+  </nav>
+  <div class="flex items-center gap-4">
+    <a href="agency-dashboard.html" class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/30 flex items-center justify-center hover:opacity-80 transition-opacity">
+      <span class="material-symbols-outlined text-on-surface-variant">person</span>
+    </a>
+  </div>
+</header>
+
+<!-- Mobile TopAppBar -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile py-4 bg-surface border-b border-outline-variant/20 sticky top-0 z-50">
+  <a href="index.html" class="flex items-center gap-2 text-primary">
+    <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+  </a>
+  <div class="flex items-center gap-2">
+    <button onclick="pwToast('Saved to bookmarks','bookmark')" class="text-on-surface-variant p-2 rounded-lg hover:bg-surface-container transition-colors">
+      <span class="material-symbols-outlined">bookmark</span>
+    </button>
+    <button onclick="pwToast('Link copied!','link')" class="text-on-surface-variant p-2 rounded-lg hover:bg-surface-container transition-colors">
+      <span class="material-symbols-outlined">share</span>
+    </button>
+    <button data-drawer-open aria-label="Menu" class="text-on-surface-variant p-2 rounded-lg hover:bg-surface-container">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</header>
+
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-6 md:py-8 pb-32 md:pb-12 space-y-8">
+
+  <!-- Property Header -->
+  <section class="flex flex-col md:flex-row md:justify-between md:items-end gap-4 border-b border-outline-variant/20 pb-6">
+    <div>
+      <p class="font-label-md text-label-md text-on-surface-variant mb-1 flex items-center gap-1">
+        <span class="material-symbols-outlined text-[16px]">location_on</span> Property Analytics
+      </p>
+      <h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">22 Baker Street, London NW1</h1>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="bg-primary-container/10 text-primary-container px-3 py-1.5 rounded-full flex items-center gap-2 font-label-md text-label-md border border-primary-container/20">
+        <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+        Fair Value
+      </div>
+      <a href="valuation-report.html" class="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">description</span>
+        Full Report
+      </a>
+      <button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface p-2 rounded-lg transition-colors hidden md:flex">
+        <span class="material-symbols-outlined">bookmark</span>
+      </button>
+      <button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface p-2 rounded-lg transition-colors hidden md:flex">
+        <span class="material-symbols-outlined">share</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Bento Grid Layout -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- Left Column: Metrics & Analysis -->
+    <div class="lg:col-span-8 space-y-6">
+      <!-- 2Ã—2 Metric Grid -->
+      <div class="grid grid-cols-2 gap-4">
+        <!-- AI Value -->
+        <div class="metric-card bg-surface-container-lowest p-6 rounded-xl border border-primary/10 group cursor-pointer">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-label-sm text-label-sm text-on-surface-variant">AI Estimated Value</h3>
+            <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings:'FILL' 1;">auto_awesome</span>
+          </div>
+          <div class="font-headline-md text-headline-md text-on-background mb-1">Â£845,000</div>
+          <div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
+            <span class="material-symbols-outlined text-[14px]">trending_up</span> +2.4% vs last month
+          </div>
+        </div>
+        <!-- Asking Price -->
+        <div class="metric-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-label-sm text-label-sm text-on-surface-variant">Asking Price</h3>
+            <span class="material-symbols-outlined text-on-surface-variant text-xl">sell</span>
+          </div>
+          <div class="font-headline-md text-headline-md text-on-background mb-1">Â£850,000</div>
+          <div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+            <span>0.6% premium to AI</span>
+          </div>
+        </div>
+        <!-- Price per SQM -->
+        <div class="metric-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-label-sm text-label-sm text-on-surface-variant">Price per SQM</h3>
+            <span class="material-symbols-outlined text-on-surface-variant text-xl">straighten</span>
+          </div>
+          <div class="font-headline-md text-headline-md text-on-background mb-1">Â£12,400</div>
+          <div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
+            <span>Top 15% in NW1</span>
+          </div>
+        </div>
+        <!-- Market Liquidity -->
+        <div class="metric-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="font-label-sm text-label-sm text-on-surface-variant">Market Liquidity</h3>
+            <span class="material-symbols-outlined text-on-surface-variant text-xl">speed</span>
+          </div>
+          <div class="font-headline-md text-headline-md text-on-background mb-1">18 Days</div>
+          <div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
+            <span class="material-symbols-outlined text-[14px]">bolt</span> Fast moving market
+          </div>
+        </div>
+      </div>
+
+      <!-- Price History Visualizer -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20" style="box-shadow: 0px 4px 20px rgba(15,110,86,0.02);">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="font-label-md text-label-md text-on-background">Price History â€” NW1 Postcode</h3>
+          <div class="flex gap-2">
+            <button class="px-3 py-1 rounded-lg bg-primary-container/10 text-primary-container font-label-sm text-label-sm border border-primary-container/20">1Y</button>
+            <button class="px-3 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container transition-colors">3Y</button>
+            <button class="px-3 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container transition-colors">5Y</button>
+          </div>
+        </div>
+        <!-- SVG Sparkline Chart -->
+        <div class="relative h-32">
+          <svg class="w-full h-full" viewBox="0 0 800 128" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0f6e56" stop-opacity="0.15"/>
+                <stop offset="100%" stop-color="#0f6e56" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,100 C50,95 100,90 160,80 C220,70 280,75 340,60 C400,45 460,50 520,35 C580,20 640,25 700,15 C750,8 780,10 800,5" fill="none" stroke="#0f6e56" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M0,100 C50,95 100,90 160,80 C220,70 280,75 340,60 C400,45 460,50 520,35 C580,20 640,25 700,15 C750,8 780,10 800,5 L800,128 L0,128 Z" fill="url(#sparkGrad)"/>
+            <circle cx="800" cy="5" r="5" fill="#0f6e56"/>
+          </svg>
+          <!-- Y-axis labels -->
+          <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Â£900k</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Â£750k</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Â£600k</span>
+          </div>
+        </div>
+        <div class="flex justify-between mt-2 font-label-sm text-label-sm text-on-surface-variant">
+          <span>Jan 2024</span><span>Apr 2024</span><span>Jul 2024</span><span>Oct 2024</span><span>Now</span>
+        </div>
+      </div>
+
+      <!-- News Signals -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20" style="box-shadow: 0px 4px 20px rgba(15,110,86,0.02);">
+        <h3 class="font-label-md text-label-md text-on-background mb-4">Market Signals &amp; News</h3>
+        <div class="space-y-4">
+          <!-- Positive Signal -->
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-tertiary-container/5 border border-tertiary-container/15">
+            <div class="bg-tertiary-container/20 text-tertiary p-2 rounded-full mt-0.5 flex-shrink-0">
+              <span class="material-symbols-outlined text-[20px]">train</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="font-label-sm text-label-sm font-bold text-tertiary uppercase tracking-wider">POSITIVE</span>
+                <span class="text-on-surface-variant text-xs">â€¢ 2 days ago</span>
+              </div>
+              <h4 class="font-label-md text-label-md text-on-background">New Crossrail Station Approval</h4>
+              <p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Confirmed plans for improved transport links within 0.5 miles, expected to drive capital growth of 3â€“5%.</p>
+            </div>
+          </div>
+          <!-- Caution Signal -->
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-secondary-container/10 border border-secondary-container/30">
+            <div class="bg-secondary-container/30 text-secondary p-2 rounded-full mt-0.5 flex-shrink-0">
+              <span class="material-symbols-outlined text-[20px]">construction</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-wider">CAUTION</span>
+                <span class="text-on-surface-variant text-xs">â€¢ 1 week ago</span>
+              </div>
+              <h4 class="font-label-md text-label-md text-on-background">Local Planning Updates</h4>
+              <p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">High-density development proposed nearby may affect local amenity values during construction phase.</p>
+            </div>
+          </div>
+          <!-- Risk Signal -->
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-error-container/20 border border-error-container/40">
+            <div class="bg-error-container text-error p-2 rounded-full mt-0.5 flex-shrink-0">
+              <span class="material-symbols-outlined text-[20px]">gavel</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="font-label-sm text-label-sm font-bold text-error uppercase tracking-wider">RISK</span>
+                <span class="text-on-surface-variant text-xs">â€¢ 2 weeks ago</span>
+              </div>
+              <h4 class="font-label-md text-label-md text-on-background">Rental Legislation Changes</h4>
+              <p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Upcoming borough regulations may impact HMO licensing and short-term let yields in NW1.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Verdict Banner -->
+      <div class="bg-[#E1F5EE] border border-primary/20 rounded-xl p-6 flex gap-4 items-start" style="box-shadow: 0px 4px 20px rgba(15,110,86,0.04);">
+        <div class="bg-primary-container text-on-primary-container p-2 rounded-lg flex-shrink-0">
+          <span class="material-symbols-outlined">psychology</span>
+        </div>
+        <div>
+          <h3 class="font-label-md text-label-md text-primary-container mb-2 font-bold">AI Verdict</h3>
+          <p class="font-body-lg text-body-lg text-on-primary-fixed-variant leading-relaxed">This property is fairly priced for the current Baker St market. Growth potential is high due to local infrastructure projects, though near-term planning disruptions require monitoring. A <strong>score of 84/100</strong> reflects strong fundamentals with manageable short-term risks.</p>
+          <a href="valuation-report.html" class="inline-flex items-center gap-1 mt-3 text-primary-container font-label-md text-label-md hover:underline">
+            View Full Report <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Score & Comps -->
+    <div class="lg:col-span-4 space-y-6">
+      <!-- Investment Score -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 flex flex-col items-center" style="box-shadow: 0px 4px 20px rgba(15,110,86,0.02);">
+        <h3 class="font-label-md text-label-md text-on-surface-variant w-full text-left mb-6">Proplity Investment Score</h3>
+        <!-- Circular Ring â€” scroll-triggered via shared.js -->
+        <div class="relative w-40 h-40 mb-8 flex justify-center items-center" id="score-ring-wrapper" data-ring-value="84">
+          <svg class="w-full h-full" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#E8E8E3" stroke-width="8"/>
+            <circle class="progress-ring__circle pw-ring-path" id="score-ring" cx="50" cy="50" r="45" fill="none" stroke="#0f6e56" stroke-dasharray="282.7" stroke-dashoffset="282.7" stroke-linecap="round" stroke-width="8"/>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span class="font-display text-primary" style="font-size:40px;font-family:Geist,sans-serif;font-weight:700;" data-ring-counter>0</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">/ 100</span>
+          </div>
+        </div>
+        <!-- Sub-scores -->
+        <div class="w-full space-y-4">
+          <div>
+            <div class="flex justify-between font-label-sm text-label-sm mb-1">
+              <span class="text-on-background">Location</span>
+              <span class="text-primary font-bold">90</span>
+            </div>
+            <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+              <div class="bg-primary h-full rounded-full" style="width:90%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between font-label-sm text-label-sm mb-1">
+              <span class="text-on-background">Fairness</span>
+              <span class="text-primary font-bold">85</span>
+            </div>
+            <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+              <div class="bg-primary h-full rounded-full" style="width:85%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between font-label-sm text-label-sm mb-1">
+              <span class="text-on-background">Growth</span>
+              <span class="text-secondary font-bold">72</span>
+            </div>
+            <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+              <div class="bg-secondary h-full rounded-full" style="width:72%"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between font-label-sm text-label-sm mb-1">
+              <span class="text-on-background">Yield</span>
+              <span class="text-outline font-bold">65</span>
+            </div>
+            <div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+              <div class="bg-outline h-full rounded-full" style="width:65%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparable Sales -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20" style="box-shadow: 0px 4px 20px rgba(15,110,86,0.02);">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-label-md text-label-md text-on-background">Comparable Sales</h3>
+          <a href="comparable-sales.html" class="text-primary font-label-sm text-label-sm hover:underline">View All</a>
+        </div>
+        <div class="space-y-3">
+          <div class="p-3 border border-outline-variant/20 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer flex justify-between items-center">
+            <div>
+              <p class="font-label-sm text-label-sm text-on-background">24 Baker St</p>
+              <p class="text-xs text-on-surface-variant">Sold Oct 2023</p>
+            </div>
+            <div class="text-right">
+              <p class="font-label-md text-label-md text-on-background">Â£860k</p>
+              <p class="text-xs text-error">-1.7% delta</p>
+            </div>
+          </div>
+          <div class="p-3 border border-outline-variant/20 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer flex justify-between items-center">
+            <div>
+              <p class="font-label-sm text-label-sm text-on-background">18 Baker St</p>
+              <p class="text-xs text-on-surface-variant">Sold Aug 2023</p>
+            </div>
+            <div class="text-right">
+              <p class="font-label-md text-label-md text-on-background">Â£825k</p>
+              <p class="text-xs text-tertiary">+2.4% delta</p>
+            </div>
+          </div>
+          <div class="p-3 border border-outline-variant/20 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer flex justify-between items-center">
+            <div>
+              <p class="font-label-sm text-label-sm text-on-background">31 Gloucester Pl</p>
+              <p class="text-xs text-on-surface-variant">Sold Jun 2023</p>
+            </div>
+            <div class="text-right">
+              <p class="font-label-md text-label-md text-on-background">Â£890k</p>
+              <p class="text-xs text-error">-5.0% delta</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Details -->
+      <div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20" style="box-shadow: 0px 4px 20px rgba(15,110,86,0.02);">
+        <h3 class="font-label-md text-label-md text-on-background mb-4">Property Details</h3>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+            <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">home</span> Type</span>
+            <span class="font-label-sm text-label-sm text-on-surface">Terraced House</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+            <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">bed</span> Bedrooms</span>
+            <span class="font-label-sm text-label-sm text-on-surface">4</span>
+          </div>
+          <div class="flex items-center justify-between py-2 border-b border-outline-variant/10">
+            <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">square_foot</span> Floor Area</span>
+            <span class="font-label-sm text-label-sm text-on-surface">68 mÂ²</span>
+          </div>
+          <div class="flex items-center justify-between py-2">
+            <span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-2"><span class="material-symbols-outlined text-[16px]">key</span> Tenure</span>
+            <span class="font-label-sm text-label-sm text-on-surface">Freehold</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Mobile Bottom NavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface border-t border-outline-variant/30 shadow-lg rounded-t-2xl">
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors" href="index.html">
+    <span class="material-symbols-outlined">search</span>
+    <span class="font-label-sm text-label-sm mt-1">Search</span>
+  </a>
+  <a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 scale-90 duration-200" href="property-insights.html">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">dashboard</span>
+    <span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors" href="comparable-sales.html">
+    <span class="material-symbols-outlined">map</span>
+    <span class="font-label-sm text-label-sm mt-1">Map</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors" href="pricing.html">
+    <span class="material-symbols-outlined">settings</span>
+    <span class="font-label-sm text-label-sm mt-1">Settings</span>
+  </a>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Bookmark + share button feedback
+    document.querySelectorAll('button').forEach(btn => {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (icon && icon.textContent.trim() === 'bookmark') {
+        btn.addEventListener('click', () => pwToast('Saved to bookmarks', 'bookmark'));
+      }
+      if (icon && icon.textContent.trim() === 'share') {
+        btn.addEventListener('click', () => { navigator.clipboard?.writeText(location.href); pwToast('Link copied!', 'link'); });
+      }
+    });
+    // Price history tab switching
+    document.querySelectorAll('[data-chart-period]').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('[data-chart-period]').forEach(b => {
+          b.className = 'px-3 py-1 rounded-lg text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container transition-colors';
+        });
+        this.className = 'px-3 py-1 rounded-lg bg-primary-container/10 text-primary-container font-label-sm text-label-sm border border-primary-container/20';
+      });
+    });
+  });
+</script>
+  <script src="shared.js"></script>
+</body>
+</html>

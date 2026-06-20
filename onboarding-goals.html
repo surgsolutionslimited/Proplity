@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Proplity | Setup: Investment Goals — Step 1 of 3</title>
+  <meta name="description" content="Tell us what you're looking to achieve so we can tailor your Proplity experience."/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>`n  <link rel="stylesheet" href="styles.css"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant":"#005312","on-error":"#ffffff","tertiary-fixed-dim":"#88d982","surface-container":"#eeeee9","on-primary":"#ffffff","surface-dim":"#dadad6","secondary-container":"#fed65b","on-primary-fixed-variant":"#00513e","inverse-surface":"#2f312e","tertiary-fixed":"#a3f69c","on-background":"#1a1c19","on-error-container":"#93000a","on-primary-fixed":"#002117","secondary":"#735c00","primary-fixed-dim":"#84d6b9","tertiary-container":"#1f7027","surface-tint":"#086b53","on-secondary":"#ffffff","on-surface-variant":"#3f4944","surface-container-highest":"#e2e3de","background":"#fafaf5","on-surface":"#1a1c19","outline":"#6f7a74","secondary-fixed":"#ffe088","on-tertiary-fixed":"#002204","on-secondary-fixed":"#241a00","primary-fixed":"#a0f3d4","outline-variant":"#bec9c3","surface":"#fafaf5","surface-container-high":"#e8e8e4","on-primary-container":"#9aedcf","primary":"#005440","inverse-on-surface":"#f1f1ec","error":"#ba1a1a","tertiary":"#005613","secondary-fixed-dim":"#e9c349","on-tertiary-container":"#9ef197","on-secondary-fixed-variant":"#574500","surface-variant":"#e2e3de","inverse-primary":"#84d6b9","surface-bright":"#fafaf5","on-secondary-container":"#745c00","primary-container":"#0f6e56","surface-container-lowest":"#ffffff","surface-container-low":"#f4f4ef","error-container":"#ffdad6","on-tertiary":"#ffffff"
+          },
+          fontFamily: { "headline": ["Geist","sans-serif"], "display": ["Geist","sans-serif"], "body": ["Inter","sans-serif"], "label": ["Geist","sans-serif"] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family:'Inter',sans-serif; background-color:#fafaf5; }
+    .font-headline { font-family:'Geist',sans-serif; }
+    .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+
+    /* Goal card radio selection */
+    .goal-radio:checked + .goal-card-ui {
+      border-color: #005440;
+      background-color: rgba(0,84,64,0.04);
+      box-shadow: 0px 4px 20px rgba(15,110,86,0.08);
+    }
+    .goal-radio:checked + .goal-card-ui .check-dot {
+      opacity:1;
+      background-color:#005440;
+    }
+    .goal-radio:checked + .goal-card-ui .check-dot::after { content:''; }
+    .goal-card-ui { transition: all 0.25s ease-in-out; }
+    .goal-card-ui:hover { border-color: rgba(0,84,64,0.35); box-shadow: 0px 4px 20px rgba(15,110,86,0.06); }
+
+    /* Bento card hover */
+    .bento-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .bento-card:hover { transform: translateY(-2px); box-shadow: 0px 8px 28px rgba(15,110,86,0.09); }
+
+    @keyframes slideUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .slide-up { animation: slideUp 0.55s cubic-bezier(0.16,1,0.3,1) forwards; opacity:0; }
+    .d1{animation-delay:.05s} .d2{animation-delay:.12s} .d3{animation-delay:.22s} .d4{animation-delay:.32s} .d5{animation-delay:.40s}
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ═══════ HEADER ═══════ -->
+  <header class="bg-background w-full z-50">
+    <nav class="flex items-center justify-between px-6 md:px-12 py-5 w-full max-w-7xl mx-auto">
+      <a href="sign-in.html" class="flex items-center gap-2 group">
+        <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings:'FILL' 1;">home_work</span>
+        <span class="font-headline text-xl font-bold text-primary tracking-tight">Proplity</span>
+      </a>
+      <a href="index.html" class="text-on-surface-variant hover:text-primary font-label font-medium transition-colors flex items-center gap-1 text-sm">
+        Skip
+        <span class="material-symbols-outlined text-[14px]">close</span>
+      </a>
+    </nav>
+    <!-- Progress Bar -->
+    <div class="w-full h-1 bg-surface-container">
+      <div class="h-full bg-primary transition-all duration-700 ease-out" style="width:33.33%"></div>
+    </div>
+  </header>
+
+  <!-- ═══════ MAIN ═══════ -->
+  <main class="flex-grow flex flex-col items-center justify-center px-5 py-10 md:py-16">
+
+    <!-- Step label -->
+    <div class="slide-up d1 text-center mb-8 w-full max-w-3xl">
+      <p class="font-label text-sm font-semibold text-primary uppercase tracking-widest mb-3">Step 1 of 3 · 33% Complete</p>
+      <h1 class="font-headline text-4xl md:text-5xl font-extrabold text-on-background tracking-tight mb-4">What are your goals?</h1>
+      <p class="text-on-surface-variant text-lg leading-relaxed max-w-lg mx-auto">
+        We'll tailor your experience based on what you're looking to achieve in the property market.
+      </p>
+    </div>
+
+    <!-- Desktop: Bento-grid 3-column cards -->
+    <div class="hidden md:grid grid-cols-3 gap-5 w-full max-w-3xl slide-up d2 mb-10">
+      <!-- Card 1: First-time Buyer (pre-selected) -->
+      <label class="relative cursor-pointer bento-card">
+        <input checked class="goal-radio sr-only" name="goal" type="radio" value="first_time"/>
+        <div class="goal-card-ui h-full p-7 bg-surface-container-lowest border-2 border-primary rounded-2xl flex flex-col items-center text-center shadow-[0px_4px_20px_rgba(15,110,86,0.08)]" style="background-color:rgba(0,84,64,0.04)">
+          <div class="w-16 h-16 rounded-full bg-primary-fixed/20 flex items-center justify-center mb-5 transition-transform group-hover:scale-110">
+            <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings:'FILL' 1;">key</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg text-on-background mb-2">First-time Buyer</h3>
+          <p class="text-on-surface-variant text-sm leading-snug">Finding and securing my very first home to live in.</p>
+          <div class="check-dot opacity-100 absolute top-4 right-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center transition-opacity">
+            <span class="material-symbols-outlined text-white text-sm">check</span>
+          </div>
+        </div>
+      </label>
+      <!-- Card 2: Portfolio Investor -->
+      <label class="relative cursor-pointer bento-card">
+        <input class="goal-radio sr-only" name="goal" type="radio" value="investor"/>
+        <div class="goal-card-ui h-full p-7 bg-surface-container-lowest border-2 border-transparent rounded-2xl flex flex-col items-center text-center hover:border-primary/30">
+          <div class="w-16 h-16 rounded-full bg-secondary-container/25 flex items-center justify-center mb-5 transition-transform">
+            <span class="material-symbols-outlined text-secondary text-3xl">account_balance</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg text-on-background mb-2">Portfolio Investor</h3>
+          <p class="text-on-surface-variant text-sm leading-snug">Scaling investments with yield data and rental market insights.</p>
+          <div class="check-dot opacity-0 absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-primary transition-opacity"></div>
+        </div>
+      </label>
+      <!-- Card 3: Real Estate Agent -->
+      <label class="relative cursor-pointer bento-card">
+        <input class="goal-radio sr-only" name="goal" type="radio" value="agent"/>
+        <div class="goal-card-ui h-full p-7 bg-surface-container-lowest border-2 border-transparent rounded-2xl flex flex-col items-center text-center hover:border-primary/30">
+          <div class="w-16 h-16 rounded-full bg-tertiary-fixed-dim/20 flex items-center justify-center mb-5 transition-transform">
+            <span class="material-symbols-outlined text-tertiary text-3xl">real_estate_agent</span>
+          </div>
+          <h3 class="font-headline font-bold text-lg text-on-background mb-2">Real Estate Agent</h3>
+          <p class="text-on-surface-variant text-sm leading-snug">Delivering better results and confidence for my clients.</p>
+          <div class="check-dot opacity-0 absolute top-4 right-4 w-6 h-6 rounded-full border-2 border-primary transition-opacity"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Mobile: vertical list -->
+    <div class="md:hidden space-y-4 w-full max-w-lg slide-up d2 mb-10">
+      <button onclick="selectGoal(this,'first_time')" class="goal-mobile w-full flex items-center gap-5 p-5 rounded-2xl border-2 border-primary bg-primary/[0.04] text-left selected">
+        <div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-on-primary-container text-2xl" style="font-variation-settings:'FILL' 1;">key</span>
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-headline font-bold text-base text-on-background">First-time Buyer</h3>
+          <p class="text-on-surface-variant text-sm mt-0.5">Finding my very first home.</p>
+        </div>
+        <div class="check-btn w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-white text-base">check</span>
+        </div>
+      </button>
+      <button onclick="selectGoal(this,'investor')" class="goal-mobile w-full flex items-center gap-5 p-5 rounded-2xl border-2 border-outline-variant bg-surface-container-lowest text-left">
+        <div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-on-surface-variant text-2xl">account_balance</span>
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-headline font-bold text-base text-on-background">Portfolio Investor</h3>
+          <p class="text-on-surface-variant text-sm mt-0.5">Scaling my property investments.</p>
+        </div>
+        <div class="check-btn w-6 h-6 rounded-full border-2 border-primary opacity-0 flex-shrink-0"></div>
+      </button>
+      <button onclick="selectGoal(this,'agent')" class="goal-mobile w-full flex items-center gap-5 p-5 rounded-2xl border-2 border-outline-variant bg-surface-container-lowest text-left">
+        <div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-on-surface-variant text-2xl">real_estate_agent</span>
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-headline font-bold text-base text-on-background">Real Estate Agent</h3>
+          <p class="text-on-surface-variant text-sm mt-0.5">Better insights for my clients.</p>
+        </div>
+        <div class="check-btn w-6 h-6 rounded-full border-2 border-primary opacity-0 flex-shrink-0"></div>
+      </button>
+    </div>
+
+    <!-- Tip Card -->
+    <div class="w-full max-w-3xl slide-up d3 mb-10">
+      <div class="bg-surface-container-low p-5 rounded-xl border border-outline-variant/30 flex items-start gap-4">
+        <span class="material-symbols-outlined text-primary-container text-[22px] flex-shrink-0 mt-0.5" style="font-variation-settings:'FILL' 1;">lightbulb</span>
+        <div>
+          <p class="font-headline font-bold text-on-surface text-sm mb-1">Friendly tip</p>
+          <p class="text-on-surface-variant text-sm leading-relaxed">Don't worry, you can always adjust your preferences later. This just helps us show you the most relevant data first.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="slide-up d4 flex flex-col items-center gap-3 w-full max-w-xs">
+      <a href="onboarding-preferences.html" class="w-full py-4 bg-primary-container text-on-primary font-headline font-bold text-lg rounded-2xl shadow-sm hover:opacity-90 active:scale-95 transition-all text-center flex items-center justify-center gap-2">
+        Next
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+      <p class="text-outline text-xs text-center max-w-xs leading-relaxed">By continuing, you agree to our <a href="#" class="underline hover:text-primary">Terms of Service</a> and <a href="#" class="underline hover:text-primary">Privacy Policy</a>.</p>
+    </div>
+  </main>
+
+  <!-- Decorative abstract background element -->
+  <div class="fixed bottom-12 right-12 hidden lg:block opacity-[0.06] pointer-events-none">
+    <div class="flex flex-col gap-4">
+      <div class="w-40 h-40 rounded-full border-[6px] border-primary"></div>
+      <div class="w-20 h-20 rounded-2xl bg-tertiary-fixed ml-auto"></div>
+    </div>
+  </div>
+
+<script>
+  // Desktop: radio card re-styling
+  document.querySelectorAll('.goal-radio').forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.querySelectorAll('label').forEach(lbl => {
+        const ui = lbl.querySelector('.goal-card-ui');
+        const dot = lbl.querySelector('.check-dot');
+        if (!ui) return;
+        ui.style.borderColor = '';
+        ui.style.backgroundColor = '';
+        ui.style.boxShadow = '';
+        dot.style.opacity = '0';
+        dot.style.backgroundColor = '';
+        dot.innerHTML = '';
+      });
+      const selectedLbl = radio.closest('label');
+      if (selectedLbl) {
+        const ui = selectedLbl.querySelector('.goal-card-ui');
+        const dot = selectedLbl.querySelector('.check-dot');
+        ui.style.borderColor = '#005440';
+        ui.style.backgroundColor = 'rgba(0,84,64,0.04)';
+        ui.style.boxShadow = '0px 4px 20px rgba(15,110,86,0.08)';
+        dot.style.opacity = '1';
+        dot.style.backgroundColor = '#005440';
+        dot.innerHTML = '<span class="material-symbols-outlined text-white text-sm">check</span>';
+      }
+    });
+  });
+
+  // Mobile: button selection
+  function selectGoal(btn, value) {
+    document.querySelectorAll('.goal-mobile').forEach(b => {
+      b.classList.remove('border-primary', 'bg-primary/[0.04]');
+      b.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+      const check = b.querySelector('.check-btn');
+      check.style.opacity = '0';
+      check.style.backgroundColor = '';
+      check.innerHTML = '';
+      const icon = b.querySelector('.material-symbols-outlined');
+      if (icon && b !== btn) icon.style.color = '';
+    });
+    btn.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+    btn.classList.add('border-primary', 'bg-primary/[0.04]');
+    const check = btn.querySelector('.check-btn');
+    check.style.opacity = '1';
+    check.style.backgroundColor = '#005440';
+    check.innerHTML = '<span class="material-symbols-outlined text-white text-base">check</span>';
+  }
+</script>
+  <script src="shared.js"></script>
+</body>
+</html>

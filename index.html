@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Proplity â€” Institutional Grade Property Intelligence</title>
+  <meta name="description" content="Know what a property is really worth before you make an offer. Institutional-grade AI valuations, news signals, and deep historical data for serious property investors."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed-variant": "#005312",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#88d982",
+            "surface-container": "#eeeee9",
+            "on-primary": "#ffffff",
+            "surface-dim": "#dadad5",
+            "secondary-container": "#fed65b",
+            "on-primary-fixed-variant": "#00513e",
+            "inverse-surface": "#2f312e",
+            "tertiary-fixed": "#a3f69c",
+            "on-background": "#1a1c19",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#002117",
+            "secondary": "#735c00",
+            "primary-fixed-dim": "#84d6b9",
+            "tertiary-container": "#1f7027",
+            "surface-tint": "#086b53",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#3f4944",
+            "surface-container-highest": "#e3e3de",
+            "background": "#fafaf5",
+            "on-surface": "#1a1c19",
+            "outline": "#6f7a74",
+            "secondary-fixed": "#ffe088",
+            "on-tertiary-fixed": "#002204",
+            "on-secondary-fixed": "#241a00",
+            "primary-fixed": "#a0f3d4",
+            "outline-variant": "#bec9c3",
+            "surface": "#fafaf5",
+            "surface-container-high": "#e8e8e3",
+            "on-primary-container": "#9aedcf",
+            "primary": "#005440",
+            "inverse-on-surface": "#f1f1ec",
+            "error": "#ba1a1a",
+            "tertiary": "#005613",
+            "secondary-fixed-dim": "#e9c349",
+            "on-tertiary-container": "#9ef197",
+            "on-secondary-fixed-variant": "#574500",
+            "surface-variant": "#e3e3de",
+            "inverse-primary": "#84d6b9",
+            "surface-bright": "#fafaf5",
+            "on-secondary-container": "#745c00",
+            "primary-container": "#0f6e56",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f4f4ef",
+            "error-container": "#ffdad6",
+            "on-tertiary": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "24px",
+            "container-max": "1440px",
+            "margin-mobile": "20px",
+            "margin-desktop": "64px",
+            "base": "8px"
+          },
+          fontFamily: {
+            "headline-md": ["Geist"],
+            "body-lg": ["Inter"],
+            "headline-lg-mobile": ["Geist"],
+            "label-md": ["Geist"],
+            "display": ["Geist"],
+            "label-sm": ["Geist"],
+            "headline-lg": ["Geist"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #fafaf5; color: #1a1c19; font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Geist', sans-serif; }
+    .ambient-shadow { box-shadow: 0px 4px 20px rgba(15,110,86,0.04); }
+    .card-border { border: 1px solid rgba(15,110,86,0.08); }
+    .card-hover:hover {
+      box-shadow: 0px 8px 30px rgba(15,110,86,0.08);
+      border-color: #0f6e56;
+      transform: translateY(-2px);
+    }
+    .card-transition { transition: all 0.2s ease-in-out; }
+    .glass-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    .soft-shadow { box-shadow: 0px 4px 20px rgba(15,110,86,0.05); }
+    .blob { border-radius: 50%; filter: blur(100px); }
+    /* Active nav link */
+    a[data-nav-link].active-nav { color: #005440 !important; font-weight: 700; }
+    a[data-nav-link].active-nav::after { content: ''; display: block; height: 2px; background: #005440; border-radius: 1px; margin-top: 2px; }
+  </style>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md text-on-surface pb-24 md:pb-0">
+
+<!-- TopAppBar -->
+<header id="top-nav" class="bg-surface/95 backdrop-blur-md flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 sticky top-0 z-40 border-b border-outline-variant/10 transition-shadow duration-300">
+  <a href="index.html" class="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity cursor-pointer">
+    <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+  </a>
+  <!-- Desktop Nav -->
+  <nav class="hidden md:flex items-center gap-6">
+    <a data-nav-link class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Search</a>
+    <a data-nav-link class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="property-insights.html">Dashboard</a>
+    <a data-nav-link class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="comparable-sales.html">Map</a>
+    <a data-nav-link class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="pricing.html">Pricing</a>
+  </nav>
+  <div class="flex items-center gap-3">
+    <button class="md:hidden text-on-surface-variant" aria-label="Menu" data-drawer-open>
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <a href="sign-in.html" class="hidden md:inline-flex items-center gap-1.5 font-label-md text-label-md text-primary border border-primary/30 px-4 py-2 rounded-xl hover:bg-primary/5 transition-colors">
+      <span class="material-symbols-outlined text-[16px]">login</span> Sign In
+    </a>
+    <a href="sign-in.html" class="hidden md:flex w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant/30 items-center justify-center overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+      <span class="material-symbols-outlined text-on-surface-variant">person</span>
+    </a>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-grow flex flex-col w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 gap-16">
+
+  <!-- Hero Section -->
+  <section class="relative flex flex-col items-center text-center max-w-3xl mx-auto space-y-8 mt-4 md:mt-12">
+    <!-- Decorative background blobs -->
+    <div class="absolute inset-0 pointer-events-none overflow-visible opacity-40 -z-10">
+      <div class="blob absolute top-[-20%] left-[-20%] w-[60%] h-[60%] bg-primary/10"></div>
+      <div class="blob absolute bottom-[-20%] right-[-20%] w-[70%] h-[70%] bg-secondary-container/20"></div>
+    </div>
+    <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/15 text-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm">
+      <span class="material-symbols-outlined text-[14px]" style="font-variation-settings:'FILL' 1;">auto_awesome</span>
+      Institutional-grade intelligence for every buyer
+    </div>
+    <h1 class="font-display text-display text-on-surface tracking-tight">
+      Know what a property is really worth <span class="text-primary">before you make an offer</span>
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+      Institutional-grade analysis, real-time market sentiment, and deep historical data combined to give you the edge in high-stakes real estate investments.
+    </p>
+    <!-- Search Bar -->
+    <div class="w-full max-w-2xl relative mt-4">
+      <div class="relative w-full flex items-center bg-surface-container-lowest rounded-2xl p-3 ambient-shadow card-border focus-within:border-primary-container focus-within:ring-2 focus-within:ring-primary-container/30 transition-all">
+        <span class="material-symbols-outlined text-outline ml-3 mr-2">location_on</span>
+        <div class="relative flex-1">
+          <input
+            id="search-input"
+            aria-label="Search properties"
+            class="w-full bg-transparent border-none focus:ring-0 font-body-lg text-body-lg text-on-surface placeholder:text-outline-variant h-12 outline-none"
+            placeholder="Enter postcode or addressâ€¦"
+            type="text"/>
+          <div id="search-autocomplete" class="pw-autocomplete"></div>
+        </div>
+        <a href="property-insights.html" id="analyze-btn" class="bg-primary-container text-on-primary font-label-md text-label-md px-6 py-3 rounded-xl hover:opacity-90 transition-opacity ml-2 flex items-center gap-2 flex-shrink-0">
+          <span class="material-symbols-outlined text-sm">search</span>
+          <span class="hidden sm:inline">Analyse</span>
+        </a>
+      </div>
+      <!-- Recent Searches -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mt-5">
+        <span class="font-label-sm text-label-sm text-on-surface-variant">Recent:</span>
+        <button onclick="document.getElementById('search-input').value='SW1A 1AA'" class="px-4 py-1.5 rounded-full bg-surface-container border border-outline-variant/20 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors">SW1A 1AA</button>
+        <button onclick="document.getElementById('search-input').value='E14 5AB'" class="px-4 py-1.5 rounded-full bg-surface-container border border-outline-variant/20 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors">E14 5AB</button>
+        <button onclick="document.getElementById('search-input').value='W11 2BQ'" class="px-4 py-1.5 rounded-full bg-surface-container border border-outline-variant/20 font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors">W11 2BQ</button>
+      </div>
+    </div>
+    <!-- Trust indicators -->
+    <div class="flex flex-wrap items-center justify-center gap-6 text-on-surface-variant font-label-sm text-label-sm mt-2">
+      <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings:'FILL' 1;">verified</span> FCA Compliant Data</span>
+      <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings:'FILL' 1;">database</span> 20M+ Transactions</span>
+      <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings:'FILL' 1;">update</span> Updated Daily</span>
+    </div>
+  </section>
+
+  <!-- Feature Cards â€” Bento Grid -->
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+    <!-- AI Valuation -->
+    <a href="valuation-report.html" class="glass-card rounded-2xl p-6 soft-shadow card-hover card-transition flex flex-col h-full cursor-pointer group">
+      <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-primary-container" style="font-variation-settings:'FILL' 1;">monitoring</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">AI Valuation</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant flex-grow">Institutional-grade accuracy leveraging thousands of data points.</p>
+      <div class="mt-4 flex items-center gap-1 text-primary font-label-sm text-label-sm group-hover:gap-2 transition-all">
+        <span>View Report</span>
+        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+      </div>
+    </a>
+    <!-- News Signals -->
+    <a href="property-insights.html" class="glass-card rounded-2xl p-6 soft-shadow card-hover card-transition flex flex-col h-full cursor-pointer group">
+      <div class="w-12 h-12 rounded-xl bg-secondary-container/30 flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-secondary" style="font-variation-settings:'FILL' 1;">newspaper</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">News Signals</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant flex-grow">Real-time market sentiment analysis impacting local property values.</p>
+      <div class="mt-4 flex items-center gap-1 text-primary font-label-sm text-label-sm group-hover:gap-2 transition-all">
+        <span>See Signals</span>
+        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+      </div>
+    </a>
+    <!-- Investment Score -->
+    <a href="property-insights.html" class="glass-card rounded-2xl p-6 soft-shadow card-hover card-transition flex flex-col h-full cursor-pointer group">
+      <div class="w-12 h-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-tertiary" style="font-variation-settings:'FILL' 1;">speed</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Investment Score</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant flex-grow">Quantified risk/reward metrics based on proprietary institutional models.</p>
+      <div class="mt-4 flex items-center gap-1 text-primary font-label-sm text-label-sm group-hover:gap-2 transition-all">
+        <span>View Score</span>
+        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+      </div>
+    </a>
+    <!-- Comparable Sales -->
+    <a href="comparable-sales.html" class="glass-card rounded-2xl p-6 soft-shadow card-hover card-transition flex flex-col h-full cursor-pointer group">
+      <div class="w-12 h-12 rounded-xl bg-outline/10 flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-outline" style="font-variation-settings:'FILL' 1;">history</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Comparable Sales</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant flex-grow">Deep historical data mapping to validate current asking prices.</p>
+      <div class="mt-4 flex items-center gap-1 text-primary font-label-sm text-label-sm group-hover:gap-2 transition-all">
+        <span>Explore Comps</span>
+        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- Bento Feature Showcase -->
+  <section class="w-full">
+    <div class="text-center mb-12">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">Everything you need to buy with confidence</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">Clear institutional insights, presented in plain English.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]">
+      <!-- AI Valuation (Large Card) -->
+      <a href="valuation-report.html" class="lg:col-span-2 glass-card rounded-2xl p-8 flex flex-col justify-between soft-shadow hover:border-primary/30 transition-all group overflow-hidden relative cursor-pointer">
+        <div class="absolute right-[-5%] top-[-10%] opacity-5 group-hover:opacity-10 transition-opacity">
+          <span class="material-symbols-outlined text-[200px]">monitoring</span>
+        </div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-xl flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined">payments</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2">What this home is worth</h3>
+          <p class="text-on-surface-variant font-body-md text-body-md mb-6 max-w-md">We analyse recent sales and local market trends to give you a realistic price range you can trust.</p>
+        </div>
+        <div class="bg-surface rounded-xl p-4 flex items-center justify-between border border-outline-variant/30 w-fit gap-8 relative z-10">
+          <div>
+            <span class="text-sm font-label-md text-label-md text-on-surface-variant block mb-1">Estimated Value</span>
+            <span class="font-headline-md text-headline-md text-primary">Â£845k â€“ Â£875k</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xs font-label-sm text-label-sm text-on-surface-variant block mb-1">Confidence</span>
+            <span class="text-sm text-on-surface font-medium">Based on 12 nearby sales</span>
+          </div>
+        </div>
+      </a>
+      <!-- Investment Score Ring -->
+      <a href="property-insights.html" class="glass-card rounded-2xl p-8 flex flex-col justify-between soft-shadow hover:border-primary/30 transition-all group cursor-pointer">
+        <div>
+          <div class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-xl flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined">donut_large</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Your home score</h3>
+          <p class="text-on-surface-variant font-body-md text-body-md text-sm">A clear verdict on location, value, and growth potential.</p>
+        </div>
+        <div class="flex items-center gap-4 mt-4">
+          <div class="relative w-16 h-16">
+            <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#e8e8e3" stroke-width="8"/>
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#0f6e56" stroke-width="8" stroke-dasharray="282.7" stroke-dashoffset="73.5" stroke-linecap="round"/>
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="font-headline-md text-headline-md font-bold text-primary text-lg">74</span>
+            </div>
+          </div>
+          <span class="text-sm font-medium text-on-surface">A solid choice in a steady area</span>
+        </div>
+      </a>
+      <!-- News Signals -->
+      <a href="property-insights.html" class="glass-card rounded-2xl p-8 flex flex-col justify-between soft-shadow hover:border-primary/30 transition-all group cursor-pointer">
+        <div>
+          <div class="w-12 h-12 bg-tertiary-container/20 text-tertiary rounded-xl flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined">newspaper</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2">What's been happening nearby</h3>
+          <p class="text-on-surface-variant font-body-md text-body-md text-sm mb-4">Local news and planning signals that matter to buyers.</p>
+        </div>
+        <div class="space-y-2">
+          <div class="flex items-start gap-2 bg-surface p-3 rounded-lg border border-outline-variant/20">
+            <span class="material-symbols-outlined text-primary text-[18px] mt-0.5" style="font-variation-settings:'FILL' 1;">thumb_up</span>
+            <span class="text-xs text-on-surface font-medium">Good news: New transport link approved</span>
+          </div>
+          <div class="flex items-start gap-2 bg-surface p-3 rounded-lg border border-outline-variant/20">
+            <span class="material-symbols-outlined text-secondary text-[18px] mt-0.5" style="font-variation-settings:'FILL' 1;">info</span>
+            <span class="text-xs text-on-surface font-medium">Worth knowing: Local school ratings updated</span>
+          </div>
+        </div>
+      </a>
+      <!-- Comparable Sales -->
+      <a href="comparable-sales.html" class="lg:col-span-2 glass-card rounded-2xl p-8 flex flex-col justify-between soft-shadow hover:border-primary/30 transition-all group relative overflow-hidden cursor-pointer">
+        <div class="relative z-10">
+          <div class="w-12 h-12 bg-surface-variant text-on-surface rounded-xl flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined">home_work</span>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2">What similar homes actually sold for</h3>
+          <p class="text-on-surface-variant font-body-md text-body-md mb-6 max-w-md">See the real sales history of comparable properties on the same street.</p>
+        </div>
+        <div class="relative z-10 flex gap-4 overflow-hidden">
+          <div class="bg-surface rounded-xl p-3 border border-outline-variant/30 flex-shrink-0 w-44">
+            <div class="w-full h-20 rounded-lg bg-surface-container mb-3 overflow-hidden flex items-center justify-center">
+              <span class="material-symbols-outlined text-outline opacity-30 text-[40px]">home</span>
+            </div>
+            <span class="font-headline-md text-headline-md font-semibold text-sm block">12 Maple Street</span>
+            <span class="text-xs text-on-surface-variant block mb-1">Sold Oct 2023</span>
+            <span class="font-medium text-primary text-sm">Â£395,000</span>
+          </div>
+          <div class="bg-surface rounded-xl p-3 border border-outline-variant/30 flex-shrink-0 w-44">
+            <div class="w-full h-20 rounded-lg bg-surface-container mb-3 overflow-hidden flex items-center justify-center">
+              <span class="material-symbols-outlined text-outline opacity-30 text-[40px]">home</span>
+            </div>
+            <span class="font-headline-md text-headline-md font-semibold text-sm block">8 Maple Street</span>
+            <span class="text-xs text-on-surface-variant block mb-1">Sold Aug 2023</span>
+            <span class="font-medium text-primary text-sm">Â£380,000</span>
+          </div>
+          <div class="bg-surface rounded-xl p-3 border border-outline-variant/30 flex-shrink-0 w-44 opacity-60">
+            <div class="w-full h-20 rounded-lg bg-surface-container mb-3 overflow-hidden flex items-center justify-center">
+              <span class="material-symbols-outlined text-outline opacity-30 text-[40px]">home</span>
+            </div>
+            <span class="font-headline-md text-headline-md font-semibold text-sm block">15 Maple Street</span>
+            <span class="text-xs text-on-surface-variant block mb-1">Sold Jan 2023</span>
+            <span class="font-medium text-primary text-sm">Â£365,000</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="w-full bg-primary rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8 overflow-hidden relative">
+    <div class="absolute inset-0 opacity-5 pointer-events-none">
+      <span class="material-symbols-outlined absolute text-[400px] -right-20 -top-20 text-white">analytics</span>
+    </div>
+    <div class="relative z-10">
+      <h2 class="font-headline-lg text-headline-lg text-on-primary mb-4">Ready to make informed decisions?</h2>
+      <p class="font-body-lg text-body-lg text-on-primary/80 max-w-lg">Access institutional-grade property intelligence. Start with a free valuation today.</p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-4 relative z-10 flex-shrink-0">
+      <a href="pricing.html" class="bg-on-primary text-primary font-label-md text-label-md px-8 py-4 rounded-xl hover:opacity-90 transition-opacity text-center font-semibold">
+        View Pricing
+      </a>
+      <a href="sign-in.html" class="bg-on-primary/10 text-on-primary border border-on-primary/30 font-label-md text-label-md px-8 py-4 rounded-xl hover:bg-on-primary/20 transition-colors text-center">
+        Get Started Free
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Mobile Bottom NavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface border-t border-outline-variant/30 shadow-lg rounded-t-2xl">
+  <a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-200" href="index.html">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">search</span>
+    <span class="font-label-sm text-label-sm mt-1">Search</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors" href="property-insights.html">
+    <span class="material-symbols-outlined">dashboard</span>
+    <span class="font-label-sm text-label-sm mt-1">Dashboard</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors" href="comparable-sales.html">
+    <span class="material-symbols-outlined">map</span>
+    <span class="font-label-sm text-label-sm mt-1">Map</span>
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container transition-colors" href="pricing.html">
+    <span class="material-symbols-outlined">settings</span>
+    <span class="font-label-sm text-label-sm mt-1">Settings</span>
+  </a>
+</nav>
+
+<!-- Footer -->
+<footer class="w-full px-margin-mobile md:px-margin-desktop py-10 flex flex-col md:flex-row items-center justify-between gap-6 bg-surface-container-low border-t border-outline-variant/20 mt-auto hidden md:flex">
+  <div class="flex items-center gap-2 text-primary">
+    <img src="logo.svg" alt="Proplity Logo" class="h-8"/>
+  </div>
+  <div class="flex gap-6 font-label-sm text-label-sm">
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Investment Disclaimer</a>
+  </div>
+  <p class="font-body-md text-body-md text-on-surface-variant text-sm">Â© 2024 Proplity Investment Platform. Institutional Grade Analysis.</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('top-nav');
+    if (window.scrollY > 10) nav.classList.add('shadow-sm');
+    else nav.classList.remove('shadow-sm');
+  });
+  // Search bar enter key
+  document.getElementById('search-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') window.location.href = 'property-insights.html';
+  });
+</script>
+  <script src="shared.js"></script>
+<script>
+  // Init autocomplete after shared.js loads
+  document.addEventListener('DOMContentLoaded', () => {
+    initAutocomplete('search-input', 'search-autocomplete', (val) => {
+      // Navigate on selection
+      setTimeout(() => { window.location.href = 'property-insights.html'; }, 300);
+    });
+  });
+</script>
+</body>
+</html>
