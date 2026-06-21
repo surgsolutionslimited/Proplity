@@ -16,7 +16,7 @@ function FaqItem({ question, answer }: { question: string, answer: string }) {
     <div className="pw-faq-item bg-surface border border-outline-variant/20 rounded-xl overflow-hidden">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="pw-faq-trigger w-full flex justify-between items-center p-5 font-label-md text-label-md text-on-surface text-left hover:bg-surface-container-lowest transition-colors"
+        className="cursor-pointer pw-faq-trigger w-full flex justify-between items-center p-5 font-label-md text-label-md text-on-surface text-left hover:bg-surface-container-lowest transition-colors"
       >
         <span>{question}</span>
         <span className={`material-symbols-outlined text-on-surface-variant flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
@@ -47,8 +47,8 @@ export default function Pricing() {
     <p className="font-body-lg text-body-lg text-on-surface-variant">Choose the plan that fits your investment strategy. From individual buyers finding their first property to agencies managing large portfolios.</p>
     
     <div className="inline-flex bg-surface-container-low p-1 rounded-xl border border-outline-variant/20 mx-auto mt-8">
-      <button id="toggle-buyer" className={`px-6 py-2.5 rounded-lg font-label-md text-label-md transition-all font-semibold ${activeTab === 'buyer' ? 'bg-surface shadow-sm text-on-surface' : 'text-on-surface-variant hover:text-on-surface'}`} onClick={() => setActiveTab('buyer')}>Buyer Plans</button>
-      <button id="toggle-agency" className={`px-6 py-2.5 rounded-lg font-label-md text-label-md transition-all font-semibold ${activeTab === 'agency' ? 'bg-surface shadow-sm text-on-surface' : 'text-on-surface-variant hover:text-on-surface'}`} onClick={() => setActiveTab('agency')}>Agency Plans</button>
+      <button id="toggle-buyer" className={`cursor-pointer px-6 py-2.5 rounded-lg font-label-md text-label-md transition-all font-semibold ${activeTab === 'buyer' ? 'bg-surface shadow-sm text-on-surface' : 'text-on-surface-variant hover:text-on-surface'}`} onClick={() => setActiveTab('buyer')}>Buyer Plans</button>
+      <button id="toggle-agency" className={`cursor-pointer px-6 py-2.5 rounded-lg font-label-md text-label-md transition-all font-semibold ${activeTab === 'agency' ? 'bg-surface shadow-sm text-on-surface' : 'text-on-surface-variant hover:text-on-surface'}`} onClick={() => setActiveTab('agency')}>Agency Plans</button>
     </div>
   </section>
 
@@ -71,7 +71,7 @@ export default function Pricing() {
         <li className="flex items-start gap-3 opacity-40"><span className="material-symbols-outlined text-outline text-[20px]">cancel</span><span className="font-body-md text-body-md text-on-surface-variant">News signals</span></li>
         <li className="flex items-start gap-3 opacity-40"><span className="material-symbols-outlined text-outline text-[20px]">cancel</span><span className="font-body-md text-body-md text-on-surface-variant">Investment score</span></li>
       </ul>
-      <button className="w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Current Plan</button>
+      <button className="cursor-pointer w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Current Plan</button>
     </div>
 
     
@@ -91,7 +91,7 @@ export default function Pricing() {
         <li className="flex items-start gap-3"><span className="material-symbols-outlined text-primary-container text-[20px]" style={{ fontVariationSettings: "\'FILL\' 1" }}>check_circle</span><span className="font-body-md text-body-md text-on-surface">25 searches per month</span></li>
         <li className="flex items-start gap-3 opacity-40"><span className="material-symbols-outlined text-outline text-[20px]">cancel</span><span className="font-body-md text-body-md text-on-surface-variant">Predictive yield modeling</span></li>
       </ul>
-      <button className="w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Upgrade to Buyer</button>
+      <button className="cursor-pointer w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Upgrade to Buyer</button>
     </div>
 
     
@@ -112,7 +112,7 @@ export default function Pricing() {
         <li className="flex items-start gap-3"><span className="material-symbols-outlined text-primary-container text-[20px]" style={{ fontVariationSettings: "\'FILL\' 1" }}>check_circle</span><span className="font-body-md text-body-md text-on-surface">Predictive yield modeling</span></li>
         <li className="flex items-start gap-3"><span className="material-symbols-outlined text-primary-container text-[20px]" style={{ fontVariationSettings: "\'FILL\' 1" }}>check_circle</span><span className="font-body-md text-body-md text-on-surface">PDF report exports</span></li>
       </ul>
-      <button className="w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Upgrade to Investor</button>
+      <button className="cursor-pointer w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Upgrade to Investor</button>
     </div>
   </section>
 
@@ -134,7 +134,7 @@ export default function Pricing() {
         <li className="flex items-start gap-3"><span className="material-symbols-outlined text-primary-container text-[20px]" style={{ fontVariationSettings: "\'FILL\' 1" }}>check_circle</span><span className="font-body-md text-body-md text-on-surface">Basic API Access</span></li>
         <li className="flex items-start gap-3 opacity-40"><span className="material-symbols-outlined text-outline text-[20px]">cancel</span><span className="font-body-md text-body-md text-on-surface-variant">White-label reports</span></li>
       </ul>
-      <button className="w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Start Free Trial</button>
+      <button className="cursor-pointer w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Start Free Trial</button>
     </div>
 
     
@@ -155,7 +155,7 @@ export default function Pricing() {
         <li className="flex items-start gap-3"><span className="material-symbols-outlined text-primary-container text-[20px]" style={{ fontVariationSettings: "\'FILL\' 1" }}>check_circle</span><span className="font-body-md text-body-md text-on-surface">White-label reports</span></li>
         <li className="flex items-start gap-3"><span className="material-symbols-outlined text-primary-container text-[20px]" style={{ fontVariationSettings: "\'FILL\' 1" }}>check_circle</span><span className="font-body-md text-body-md text-on-surface">Portfolio analytics dashboard</span></li>
       </ul>
-      <button className="w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Contact Sales</button>
+      <button className="cursor-pointer w-full py-3.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity font-semibold">Contact Sales</button>
     </div>
 
     
@@ -174,7 +174,7 @@ export default function Pricing() {
         <li className="flex items-start gap-3"><span className="material-symbols-outlined text-primary-container text-[20px]" style={{ fontVariationSettings: "\'FILL\' 1" }}>check_circle</span><span className="font-body-md text-body-md text-on-surface">Custom integration support</span></li>
         <li className="flex items-start gap-3"><span className="material-symbols-outlined text-primary-container text-[20px]" style={{ fontVariationSettings: "\'FILL\' 1" }}>check_circle</span><span className="font-body-md text-body-md text-on-surface">SLA & compliance reports</span></li>
       </ul>
-      <button className="w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Contact Sales</button>
+      <button className="cursor-pointer w-full py-3.5 rounded-xl border border-primary-container text-primary-container font-label-md text-label-md hover:bg-surface-container-low transition-colors font-semibold">Contact Sales</button>
     </div>
   </section>
 

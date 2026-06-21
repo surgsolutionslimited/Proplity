@@ -108,6 +108,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  button, 
+  [role="button"] {
+    cursor: pointer;
+  }
 }
 
 /* Base custom styles ported from legacy_prototype */
