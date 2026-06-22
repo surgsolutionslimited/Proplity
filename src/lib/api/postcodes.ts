@@ -83,6 +83,8 @@ export async function lookupPostcode(postcode: string): Promise<PostcodeDetails 
       ward: p.admin_ward ?? '',
       adminDistrict: p.admin_district ?? '',
       country: p.country ?? 'England',
+      type: 'postcode' as const,
+      displayName: p.postcode,
       latitude: p.latitude,
       longitude: p.longitude,
       region: p.region ?? '',
