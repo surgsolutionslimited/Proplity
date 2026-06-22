@@ -80,7 +80,7 @@ export default function AgencyDashboard() {
           <span className="font-label-sm text-label-sm text-on-surface-variant">Portfolio Value</span>
           <span className="material-symbols-outlined text-secondary text-sm" style={{ fontVariationSettings: "\'FILL\' 1" }}>account_balance</span>
         </div>
-        <span className="font-headline-md text-headline-md font-semibold text-on-surface">Â£18.2M</span>
+        <span className="font-headline-md text-headline-md font-semibold text-on-surface">£18.2M</span>
         <div className="flex items-center gap-1 text-tertiary">
           <span className="material-symbols-outlined text-[14px]">trending_up</span>
           <span className="font-label-sm text-label-sm">+4.2% YoY</span>
@@ -150,7 +150,7 @@ export default function AgencyDashboard() {
             <span className="bg-tertiary/10 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-tertiary/20 font-semibold">Listed</span>
           </div>
           <div className="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
-            <a href="valuation-report.html" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+            <Link href="/valuation-report" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</Link>
           </div>
         </div>
 
@@ -186,7 +186,7 @@ export default function AgencyDashboard() {
             <span className="bg-secondary-container/30 text-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-secondary-container/40 font-semibold">Pending</span>
           </div>
           <div className="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
-            <a href="valuation-report.html" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+            <Link href="/valuation-report" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</Link>
           </div>
         </div>
 
@@ -222,7 +222,7 @@ export default function AgencyDashboard() {
             <span className="bg-tertiary/10 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-tertiary/20 font-semibold">Listed</span>
           </div>
           <div className="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
-            <a href="valuation-report.html" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+            <Link href="/valuation-report" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</Link>
           </div>
         </div>
 
@@ -258,7 +258,7 @@ export default function AgencyDashboard() {
             <span className="bg-error/10 text-error font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-error/20 font-semibold">Expired</span>
           </div>
           <div className="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
-            <a href="valuation-report.html" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+            <Link href="/valuation-report" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</Link>
           </div>
         </div>
 
@@ -294,7 +294,7 @@ export default function AgencyDashboard() {
             <span className="bg-tertiary/10 text-tertiary font-label-sm text-label-sm px-2.5 py-1 rounded-lg border border-tertiary/20 font-semibold">Listed</span>
           </div>
           <div className="col-span-1 md:col-span-2 flex justify-start md:justify-end mt-2 md:mt-0">
-            <a href="valuation-report.html" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</a>
+            <Link href="/valuation-report" className="bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-xl hover:opacity-90 transition-opacity w-full md:w-auto text-center">Generate Report</Link>
           </div>
         </div>
 
@@ -311,7 +311,7 @@ export default function AgencyDashboard() {
   </section>
 
   
-  <section className="flex flex-col gap-4 hidden md:flex">
+  <section className="hidden md:flex flex-col gap-4">
     <h2 className="font-headline-md text-headline-md text-on-surface">Recent Activity</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       <div className="bg-surface border border-outline-variant/20 rounded-xl p-4 flex items-start gap-3" style={{"boxShadow":"0 4px 20px rgba(15,110,86,0.02)"}}>

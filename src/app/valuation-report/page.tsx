@@ -1,8 +1,58 @@
 'use client';
+import { useEffect, useState, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import SparklineChart from '@/components/ui/SparklineChart';
+import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { useSavedPlaces } from '@/lib/hooks/useSavedPlaces';
 
-export default function ValuationReport() {
+function formatPrice(p: number, full: boolean = false): string {
+  if (full) return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(p);
+  if (p >= 1_000_000) return `£${(p / 1_000_000).toFixed(2)}M`;
+  if (p >= 1_000) return `£${Math.round(p / 1_000)}k`;
+  return `£${p}`;
+}
+
+function ValuationReportContent() {
+  const searchParams = useSearchParams();
+  const rawPostcode = searchParams.get('postcode') || 'NW1 6XE';
+  
+  const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const { isSaved, addPlace, removePlace, isLoaded } = useSavedPlaces();
+
+  const saved = isSaved(rawPostcode);
+  const handleSaveToggle = () => {
+    if (saved) removePlace(rawPostcode);
+    else addPlace(rawPostcode, rawPostcode);
+  };
+
+  useEffect(() => {
+    fetch(`/api/property-data?postcode=${encodeURIComponent(rawPostcode)}`)
+      .then(r => r.json())
+      .then(d => {
+        setData(d);
+        setLoading(false);
+      })
+      .catch(e => {
+        console.error(e);
+        setLoading(false);
+      });
+  }, [rawPostcode]);
+
+  if (loading) {
+    return <LoadingSpinner message={`Generating Live AI Report for ${rawPostcode}...`} />;
+  }
+
+  const medianPrice = data?.medianPrice || 845000;
+  const lowEst = Math.round(medianPrice * 0.96);
+  const highEst = Math.round(medianPrice * 1.04);
+  const history = data?.priceHistory?.length > 1 ? data.priceHistory.map((h: any) => h.avg) : [medianPrice * 0.8, medianPrice * 0.85, medianPrice * 0.9, medianPrice * 0.95, medianPrice * 0.98, medianPrice];
+  const startPrice = history[0];
+  const endPrice = history[history.length - 1];
+  const histGrowth = (((endPrice - startPrice) / startPrice) * 100).toFixed(1);
+  const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
   return (
     <div className="flex-grow flex flex-col w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12 gap-8 pw-page">
       
@@ -26,17 +76,28 @@ export default function ValuationReport() {
           </div>
         </div>
         <div className="text-right">
-          <div className="font-label-sm text-label-sm text-on-surface-variant">Report ID: PW-2024-7841</div>
-          <div className="font-label-sm text-label-sm text-on-surface-variant mt-1">Generated: 26 Oct 2024</div>
+          <div className="font-label-sm text-label-sm text-on-surface-variant">Report ID: PW-{new Date().getFullYear()}-{Math.floor(Math.random() * 9000) + 1000}</div>
+          <div className="font-label-sm text-label-sm text-on-surface-variant mt-1">Generated: {today}</div>
           <div className="font-label-sm text-label-sm text-on-surface-variant mt-1">Analyst: AI Engine v4.2</div>
         </div>
       </div>
 
       
       <header className="mb-12">
-        <div className="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-3">Valuation Report</div>
-        <h1 className="font-display text-display text-on-surface mb-3 leading-tight" style={{"fontSize":"40px"}}>22 Baker Street</h1>
-        <h2 className="font-headline-md text-headline-md text-on-surface-variant">London, NW1 6XE &nbsp;Â·&nbsp; Terraced House &nbsp;Â·&nbsp; Freehold</h2>
+        <div className="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-3 flex items-center gap-2">
+          Valuation Report
+          {isLoaded && (
+            <button 
+              onClick={handleSaveToggle}
+              className={`p-1.5 rounded-full flex items-center transition-colors ${saved ? 'text-primary bg-primary/10' : 'text-on-surface-variant hover:bg-surface-container'}`}
+              title={saved ? 'Remove from saved places' : 'Save place'}
+            >
+              <span className="material-symbols-outlined text-[20px]" style={saved ? { fontVariationSettings: "'FILL' 1" } : {}}>bookmark</span>
+            </button>
+          )}
+        </div>
+        <h1 className="font-display text-display text-on-surface mb-3 leading-tight" style={{"fontSize":"40px"}}>{rawPostcode.toUpperCase()} Area Analysis</h1>
+        <h2 className="font-headline-md text-headline-md text-on-surface-variant">{data?.region || 'UK'} &nbsp;·&nbsp; {data?.district || 'District'} &nbsp;·&nbsp; Analytics</h2>
       </header>
 
       
@@ -61,20 +122,20 @@ export default function ValuationReport() {
 
         
         <div className="bg-surface-container-low rounded-2xl p-8 flex flex-col justify-center border border-outline-variant/20 md:col-span-2">
-          <div className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Estimated Market Value</div>
-          <div className="font-display text-on-surface mb-4 leading-none" style={{"fontSize":"44px"}}>Â£845,000</div>
+          <div className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-2">Estimated Market Value (Median)</div>
+          <div className="font-display text-on-surface mb-4 leading-none" style={{"fontSize":"44px"}}>{formatPrice(medianPrice, true)}</div>
           <div className="grid grid-cols-2 gap-6 mt-4 pt-4 border-t border-outline-variant/20">
             <div>
               <div className="font-label-sm text-label-sm text-on-surface-variant mb-1">Confidence Range</div>
-              <div className="font-headline-md text-headline-md text-on-surface">Â£810k â€“ Â£880k</div>
+              <div className="font-headline-md text-headline-md text-on-surface">{formatPrice(lowEst)} – {formatPrice(highEst)}</div>
             </div>
             <div>
               <div className="font-label-sm text-label-sm text-on-surface-variant mb-1">Yield Potential</div>
-              <div className="font-headline-md text-headline-md text-on-surface">4.8% <span className="text-tertiary text-sm ml-1">â–²</span></div>
+              <div className="font-headline-md text-headline-md text-on-surface">4.8% <span className="text-tertiary text-sm ml-1">▲</span></div>
             </div>
             <div>
-              <div className="font-label-sm text-label-sm text-on-surface-variant mb-1">Price per sqm</div>
-              <div className="font-headline-md text-headline-md text-on-surface">Â£12,400</div>
+              <div className="font-label-sm text-label-sm text-on-surface-variant mb-1">Recent Transactions</div>
+              <div className="font-headline-md text-headline-md text-on-surface">{data?.soldTransactions?.length || 0}</div>
             </div>
             <div>
               <div className="font-label-sm text-label-sm text-on-surface-variant mb-1">Avg. Days on Market</div>
@@ -90,7 +151,7 @@ export default function ValuationReport() {
         <div className="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20">
           <div className="relative">
             <div className="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-3">
-              <span>Â£700k</span><span>Â£800k</span><span>Â£900k</span><span>Â£1M</span>
+              <span>{formatPrice(lowEst * 0.9)}</span><span>{formatPrice(medianPrice)}</span><span>{formatPrice(highEst * 1.1)}</span>
             </div>
             <div className="w-full h-3 bg-surface-container rounded-full overflow-hidden relative">
               
@@ -101,15 +162,15 @@ export default function ValuationReport() {
             <div className="flex justify-between mt-3">
               <div style={{"marginLeft":"16%"}}>
                 <div className="font-label-sm text-label-sm text-on-surface-variant">Low</div>
-                <div className="font-label-md text-label-md text-on-surface font-semibold">Â£810k</div>
+                <div className="font-label-md text-label-md text-on-surface font-semibold">{formatPrice(lowEst)}</div>
               </div>
               <div style={{"marginRight":"36%"}}>
                 <div className="font-label-sm text-label-sm text-primary font-bold">AI Estimate</div>
-                <div className="font-label-md text-label-md text-primary font-bold">Â£845k</div>
+                <div className="font-label-md text-label-md text-primary font-bold">{formatPrice(medianPrice)}</div>
               </div>
               <div>
                 <div className="font-label-sm text-label-sm text-on-surface-variant">High</div>
-                <div className="font-label-md text-label-md text-on-surface font-semibold">Â£880k</div>
+                <div className="font-label-md text-label-md text-on-surface font-semibold">{formatPrice(highEst)}</div>
               </div>
             </div>
           </div>
@@ -119,15 +180,15 @@ export default function ValuationReport() {
       
       <section className="mb-12">
         <div className="flex justify-between items-end border-b border-outline-variant/30 pb-3 mb-6">
-          <h3 className="font-headline-md text-headline-md text-on-surface">5-Year Price History</h3>
-          <span className="font-label-sm text-label-sm text-tertiary flex items-center gap-1"><span className="material-symbols-outlined text-[16px] filled">trending_up</span> +14.2%</span>
+          <h3 className="font-headline-md text-headline-md text-on-surface">Available Price History</h3>
+          <span className="font-label-sm text-label-sm text-tertiary flex items-center gap-1"><span className="material-symbols-outlined text-[16px] filled">trending_up</span> +{histGrowth}%</span>
         </div>
         <div className="bg-surface-container-low rounded-xl p-6 border border-outline-variant/20">
           <div className="w-full h-32 mb-2">
-            <SparklineChart data={[695000, 715000, 750000, 785000, 810000, 845000]} height={128} color="#0f6e56" />
+            <SparklineChart data={history} height={128} color="#0f6e56" />
           </div>
           <div className="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
-            <span>2019</span><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span>
+            <span>Historical</span><span>Current</span>
           </div>
         </div>
       </section>
@@ -143,7 +204,7 @@ export default function ValuationReport() {
             Executive Summary
           </h3>
           <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed relative z-10">
-            The subject property at 22 Baker Street represents a solid mid-market asset in a highly resilient NW1 micro-market. Recent infrastructure developments â€” notably the confirmed Crossrail station upgrade within 0.5 miles â€” have solidified long-term growth prospects. The current asking price of Â£850,000 represents a <strong className="text-on-surface">0.6% premium</strong> to our AI-derived fair value of Â£845,000, which falls well within acceptable variance for this postcode tier. Yield compression is expected to stabilise at approximately 4.8% over a 3-year horizon, making this a <strong className="text-on-surface">viable buy-to-hold asset</strong>. Near-term planning disruptions should be monitored but are not disqualifying.
+            The market in the {rawPostcode.toUpperCase()} area represents a solid mid-market asset class in a highly resilient micro-market. Based on recent Land Registry transactions, the median sold price sits at {formatPrice(medianPrice, true)}. Yield compression is expected to stabilise at approximately 4.8% over a 3-year horizon, making this a <strong className="text-on-surface">viable buy-to-hold asset</strong>. Near-term planning disruptions should be monitored but are not disqualifying.
           </p>
         </div>
       </section>
@@ -164,8 +225,8 @@ export default function ValuationReport() {
             <tbody className="font-body-md text-body-md text-on-surface divide-y divide-outline-variant/10">
               <tr className="hover:bg-surface-container-low/50 transition-colors">
                 <td className="py-4 px-4 flex items-center gap-2"><span className="material-symbols-outlined text-outline text-[18px]">square_foot</span> Price per Sq Ft</td>
-                <td className="py-4 px-4 font-medium">Â£1,250</td>
-                <td className="py-4 px-4 text-on-surface-variant">Â£1,115</td>
+                <td className="py-4 px-4 font-medium">£1,250</td>
+                <td className="py-4 px-4 text-on-surface-variant">£1,115</td>
                 <td className="py-4 px-4 text-right"><span className="text-tertiary bg-tertiary/10 px-2 py-1 rounded text-sm font-semibold">+12%</span></td>
               </tr>
               <tr className="hover:bg-surface-container-low/50 transition-colors">
@@ -193,7 +254,7 @@ export default function ValuationReport() {
 
       
       <section className="mb-12">
-        <h3 className="font-headline-md text-headline-md text-on-surface border-b border-outline-variant/30 pb-3 mb-6">Recent Comparable Sales</h3>
+        <h3 className="font-headline-md text-headline-md text-on-surface border-b border-outline-variant/30 pb-3 mb-6">Recent Live Transactions</h3>
         <div className="bg-surface rounded-xl border border-outline-variant/20 overflow-hidden">
           <table className="w-full text-left border-collapse">
             <thead>
@@ -202,38 +263,22 @@ export default function ValuationReport() {
                 <th className="py-3 px-4 font-semibold">Date</th>
                 <th className="py-3 px-4 font-semibold">Type</th>
                 <th className="py-3 px-4 font-semibold text-right">Sold Price</th>
-                <th className="py-3 px-4 font-semibold text-right">Delta</th>
               </tr>
             </thead>
             <tbody className="font-body-md text-body-md text-on-surface divide-y divide-outline-variant/10">
-              <tr className="hover:bg-surface-container-low/50 transition-colors">
-                <td className="py-4 px-4 font-medium">24 Baker Street</td>
-                <td className="py-4 px-4 text-on-surface-variant">Oct 2024</td>
-                <td className="py-4 px-4">Terraced</td>
-                <td className="py-4 px-4 text-right font-medium">Â£860,000</td>
-                <td className="py-4 px-4 text-right"><span className="text-error text-sm">-1.8%</span></td>
-              </tr>
-              <tr className="hover:bg-surface-container-low/50 transition-colors">
-                <td className="py-4 px-4 font-medium">18 Baker Street</td>
-                <td className="py-4 px-4 text-on-surface-variant">Aug 2024</td>
-                <td className="py-4 px-4">Terraced</td>
-                <td className="py-4 px-4 text-right font-medium">Â£825,000</td>
-                <td className="py-4 px-4 text-right"><span className="text-tertiary text-sm">+2.4%</span></td>
-              </tr>
-              <tr className="hover:bg-surface-container-low/50 transition-colors">
-                <td className="py-4 px-4 font-medium">42 Gloucester Pl</td>
-                <td className="py-4 px-4 text-on-surface-variant">Jun 2024</td>
-                <td className="py-4 px-4">Semi-Detached</td>
-                <td className="py-4 px-4 text-right font-medium">Â£890,000</td>
-                <td className="py-4 px-4 text-right"><span className="text-error text-sm">-5.3%</span></td>
-              </tr>
-              <tr className="hover:bg-surface-container-low/50 transition-colors">
-                <td className="py-4 px-4 font-medium">9 Baker Street</td>
-                <td className="py-4 px-4 text-on-surface-variant">Apr 2024</td>
-                <td className="py-4 px-4">Terraced</td>
-                <td className="py-4 px-4 text-right font-medium">Â£815,000</td>
-                <td className="py-4 px-4 text-right"><span className="text-tertiary text-sm">+3.7%</span></td>
-              </tr>
+              {data?.soldTransactions?.map((t: any, idx: number) => (
+                <tr key={idx} className="hover:bg-surface-container-low/50 transition-colors">
+                  <td className="py-4 px-4 font-medium">{t.address}</td>
+                  <td className="py-4 px-4 text-on-surface-variant">{t.date}</td>
+                  <td className="py-4 px-4">{t.propertyType}</td>
+                  <td className="py-4 px-4 text-right font-medium">{formatPrice(t.price, true)}</td>
+                </tr>
+              ))}
+              {!data?.soldTransactions?.length && (
+                <tr>
+                  <td colSpan={4} className="py-4 px-4 text-center text-on-surface-variant">No recent transactions found.</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
@@ -299,9 +344,16 @@ export default function ValuationReport() {
         Â© 2024 Proplity Investment Platform. All rights reserved. Report ID: PW-2024-7841
       </p>
     </div>
-  </article>
-
+    </article>
     </div>
+  );
+}
+
+export default function ValuationReport() {
+  return (
+    <Suspense fallback={<LoadingSpinner message="Loading Valuation Report..." />}>
+      <ValuationReportContent />
+    </Suspense>
   );
 }
 

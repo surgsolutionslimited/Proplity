@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="w-full px-margin-mobile md:px-margin-desktop py-10 flex flex-col md:flex-row items-center justify-between gap-6 bg-surface border-t border-outline-variant/20 mt-auto">
+    <footer className="w-full px-margin-mobile md:px-margin-desktop py-2 flex flex-col md:flex-row items-center justify-between gap-4 bg-surface border-t border-outline-variant/20 mt-auto">
       <div className="flex items-center gap-2 text-primary">
-        <img src="/logo.svg" alt="Proplity Logo" className="h-10 w-auto" />
+        <img src="/logo.svg" alt="Proplity Logo" className="h-10 md:h-12 w-auto site-logo" />
       </div>
       <div className="flex flex-wrap justify-center gap-6 font-label-sm text-label-sm">
         <Link className="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</Link>

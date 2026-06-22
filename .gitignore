@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dev artifacts
+scratchpad_agency_dashboard.txt
+port-script.js
+legacy_prototype/
