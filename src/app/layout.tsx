@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import { AuthProvider } from "@/lib/contexts/AuthContext";
 import AuthGuard from "@/components/auth/AuthGuard";
 import { ThemeProvider } from "@/lib/contexts/ThemeContext";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 export const metadata: Metadata = {
   title: {
@@ -61,6 +62,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://tile.openstreetmap.org" />
       </head>
       <body className="antialiased min-h-screen flex flex-col bg-background text-on-background font-body-md overflow-x-hidden">
+        <ScrollToTop />
         <ThemeProvider>
           <AuthProvider>
             <AuthGuard>
