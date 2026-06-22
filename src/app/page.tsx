@@ -33,7 +33,7 @@ export default function Home() {
       )}
       {/* Hero Section */}
       <section className="relative flex flex-col items-center text-center max-w-3xl mx-auto space-y-8 mt-4 md:mt-12 pw-reveal is-visible">
-        <div className="absolute inset-0 pointer-events-none overflow-visible opacity-40 -z-10">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-40 -z-10">
           <div className="blob absolute top-[-20%] left-[-20%] w-[60%] h-[60%] bg-primary/10"></div>
           <div className="blob absolute bottom-[-20%] right-[-20%] w-[70%] h-[70%] bg-secondary-container/20"></div>
         </div>

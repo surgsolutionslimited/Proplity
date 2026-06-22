@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <head>
         {/* Preconnect to Google Fonts for faster resolution */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
