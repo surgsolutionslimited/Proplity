@@ -7,7 +7,7 @@ import { AuthProvider } from "@/lib/contexts/AuthContext";
 import AuthGuard from "@/components/auth/AuthGuard";
 import { ThemeProvider } from "@/lib/contexts/ThemeContext";
 
-// next/font handles font loading with zero layout shift and no render-blocking
+// next/font self-hosts fonts on Vercel — zero render-blocking, zero layout shift
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
@@ -62,15 +62,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${inter.variable}`}>
       <head>
-        {/* Material Symbols — loaded async to avoid render-blocking */}
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional"
-          as="style"
-        />
+        {/* Preconnect to Google Fonts for faster DNS + TLS */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/*
+          Material Symbols: must use display=swap (NOT display=optional).
+          display=optional lets the browser skip the font if not ready,
+          causing icons to render as raw text. next/font doesn't support
+          variable icon fonts, so we load this one via a standard link tag.
+        */}
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         />
         <link rel="preconnect" href="https://tile.openstreetmap.org" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://tile.openstreetmap.org" />
