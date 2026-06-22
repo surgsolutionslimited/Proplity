@@ -41,23 +41,32 @@ export async function GET(req: NextRequest) {
     const priceHistory = getPriceHistory(soldPrices);
     const topEpc = epcRecords[0] ?? null;
 
-    return NextResponse.json({
-      postcode: details?.postcode ?? query.toUpperCase(),
-      district: details?.adminDistrict ?? '',
-      region: details?.region ?? '',
-      latitude: details?.latitude ?? null,
-      longitude: details?.longitude ?? null,
-      medianPrice,
-      priceHistory,
-      soldTransactions: soldPrices.slice(0, 6).map((t) => ({
-        ...t,
-        lat: details?.latitude ? details.latitude + (Math.random() - 0.5) * 0.0015 : 51.505,
-        lng: details?.longitude ? details.longitude + (Math.random() - 0.5) * 0.0015 : -0.09,
-      })),
-      epc: topEpc,
-    });
+    return NextResponse.json(
+      {
+        postcode: details?.postcode ?? query.toUpperCase(),
+        district: details?.adminDistrict ?? '',
+        region: details?.region ?? '',
+        latitude: details?.latitude ?? null,
+        longitude: details?.longitude ?? null,
+        medianPrice,
+        priceHistory,
+        soldTransactions: soldPrices.slice(0, 6).map((t) => ({
+          ...t,
+          lat: details?.latitude ? details.latitude + (Math.random() - 0.5) * 0.0015 : 51.505,
+          lng: details?.longitude ? details.longitude + (Math.random() - 0.5) * 0.0015 : -0.09,
+        })),
+        epc: topEpc,
+      },
+      {
+        headers: {
+          // Cache at Vercel CDN edge for 1 hour, allow stale for 24h while revalidating
+          'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        },
+      }
+    );
   } catch (err) {
     console.error('Property data error:', err);
     return NextResponse.json({ error: 'Failed to fetch property data' }, { status: 500 });
   }
 }
+
